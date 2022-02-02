@@ -1,6 +1,6 @@
 # Travel-Chain MVP
 
-XplorChain is a NFT market for travel-based, digital art used as digital keychains. This is a MVP.
+Travel-Chain is a NFT market for travel-based, digital art used as digital keychains. This is a MVP.
 
 ## Features
 (Subject to change/not limited to)
