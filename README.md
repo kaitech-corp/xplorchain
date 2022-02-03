@@ -20,7 +20,7 @@ various rewards including Common tiered NTF's.
 - Typescript
 - Google Cloud Platform
 
-##Crypto Platforms
+## Crypto Platforms
 (Subject to change)
 - Polygon
 - Cardano
