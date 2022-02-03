@@ -1,10 +1,10 @@
 # Contribute to Travel-Chain (all versions including subsequent name changes)
 
 Thank you for contributing! Travel-Chain is an open-source project, maintained and operated by Kai Technologies Corp. that welcomes contributions from everyone.
-Please read our [code of conduct]().
+Please read our [code of conduct](https://github.com/kaitech-corp/travel-chain/blob/develop/CODE_OF_CONDUCT.md).
 
 This document outlines the procedures and what to expect when contributing a bug report, a feature request, or new code via a pull request.
-If you want to contribute documentation have a look at the [Wiki]().
+If you want to contribute documentation have a look at the [Wiki](https://github.com/kaitech-corp/travel-chain/wiki).
 To contribute tutorials or help documents, get in touch with the _Documentation leader_, Randy Nolden (Randy@kaitechcorp.com).
 
 **Please read** and **follow these guidelines** before submitting a bug report, feature request or pull request.
@@ -22,7 +22,7 @@ Found a bug? Tell us all about it!
 - If you notice something odd happening, try to make it happen again (reproduce it).
 - If you can reproduce it, try to figure out if it's caused by the video format that you use or by Travel-Chain.
 - If it's caused by Travel-Chain, make sure it **still occurs in the current development version** (where we continually fix problems) by checking out with git to the current `dev` branch of Travel-Chain.
-- If it looks like it's caused by Travel-Chain (or if you're not sure) and still occurs on the current `dev` branch, submit a bug report to the [issue tracker]().
+- If it looks like it's caused by Travel-Chain (or if you're not sure) and still occurs on the current `develop` branch, submit a bug report to the [issue tracker]().
     - **Search the issue tracker** to make sure your problem has not been reported yet. If you find a relevant bug, comment there, even if it's an old or closed one!
     - Only if you don't find a relevant issue, open a new issue. A new issue does not generate more exposure/visibility than commenting on an existing one.
     - Make sure you give it a good title! A good title explains the core of the problem in about 5-10 words. (It's sometimes easier to write the title after you've written the description.)
