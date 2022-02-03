@@ -44,3 +44,20 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Android related
+**/android/**/gradle-wrapper.jar
+.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/key.properties
+
+# iOS related
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Firebase configuration files / Google Services (e.g. APIs or Firebase)
+ios/Runner/GoogleService-Info.plist
+android/app/google-services.json
