@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nfkeychain_mvp/screens/market/market_screen.dart';
-import 'package:nfkeychain_mvp/screens/my_collection/my_collection.dart';
+import '../market/market_screen.dart';
+import '../my_collection/my_collection.dart';
+
 
 class SliderMenu extends StatelessWidget {
   const SliderMenu({

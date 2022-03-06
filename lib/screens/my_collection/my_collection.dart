@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:nfkeychain_mvp/services/constants/constants.dart';
+import '../../services/constants/constants.dart';
+
 
 
 class MyCollection extends StatelessWidget{

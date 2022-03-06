@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:nfkeychain_mvp/services/constants/constants.dart';
+import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+
+import '../../services/constants/constants.dart';
+
 
 
 
@@ -9,86 +12,112 @@ class Market extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("What's New!", style: Theme.of(context).textTheme.headline5,),
-                  Text('View all', style: Theme.of(context).textTheme.subtitle2),
-                ],
-              ),
+    return SingleChildScrollView(
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("What's New", style: Theme.of(context).textTheme.headline5,),
+                Text('View all', style: Theme.of(context).textTheme.subtitle2),
+              ],
             ),
-            Expanded(
-              flex: 2,
-              // height: SizeConfig.screenHeight/4,
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  autoPlay: true,
-                  autoPlayAnimationDuration: const Duration(seconds: 3),
-                  aspectRatio: 1.0,
-                  viewportFraction: .75,
-                  enlargeCenterPage: true,
-                  enlargeStrategy: CenterPageEnlargeStrategy.scale
-                ),
-                items: List.generate(5, (index) => NFTCollection(index: index)),
-              ),
+          ),
+          SizedBox(
+            height: SizeConfig.screenHeight/4,
+            width: double.infinity,
+            child: ListView.builder(
+                itemCount: 5,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                  return NFTCollection(index: index);
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Popular Destinations", style: Theme.of(context).textTheme.headline5,),
+                Text('View all', style: Theme.of(context).textTheme.subtitle2),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Near me', style: Theme.of(context).textTheme.headline5,),
-                  Text('View all', style: Theme.of(context).textTheme.subtitle2),
-                ],
-              ),
+          ),
+          SizedBox(
+            height: SizeConfig.screenHeight/4,
+            width: double.infinity,
+            child: ListView.builder(
+                itemCount: 5,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                  return NFTCollection(index: index);
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Hot Collections", style: Theme.of(context).textTheme.headline5,),
+                Text('View all', style: Theme.of(context).textTheme.subtitle2),
+              ],
             ),
-            Expanded(
-              flex: 2,
-              // height: SizeConfig.screenHeight/4,
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  autoPlay: true,
-                  autoPlayAnimationDuration: const Duration(seconds: 3),
-                  aspectRatio: 1.75,
-                  enlargeCenterPage: true,
-                ),
-                items: List.generate(5, (index) => NFTCollection(index: index)),
-              ),
+          ),
+          SizedBox(
+            height: SizeConfig.screenHeight/4,
+            width: double.infinity,
+            child: ListView.builder(
+                itemCount: 5,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index){
+                  return NFTCollectionAvatar(index: index);
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Near me', style: Theme.of(context).textTheme.headline5,),
+                Text('View all', style: Theme.of(context).textTheme.subtitle2),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('My Destinations', style: Theme.of(context).textTheme.headline5,),
-                  Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
-                ],
-              ),
+          ),
+          CarouselSlider(
+            options: CarouselOptions(
+              autoPlay: true,
+              autoPlayAnimationDuration: const Duration(seconds: 3),
+              aspectRatio: 1.75,
+              enlargeCenterPage: true,
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.blueGrey,
-                child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index){
-                    return ListTile(
-                      title: Text(locations[index],style: Theme.of(context).textTheme.headline6,),
-                      trailing: Text('${nftCount[index]}'),
-                    );
-                  }),
-              ),
-            )
-          ],
-        ),
-      ),
+            items: List.generate(5, (index) => NFTCollection(index: index)),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Text('My Destinations', style: Theme.of(context).textTheme.headline5,),
+          //       Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
+          //     ],
+          //   ),
+          // ),
+          // Container(
+          //   color: Colors.blueGrey,
+          //   child: ListView.builder(
+          //       itemCount: 4,
+          //       itemBuilder: (context, index){
+          //         return ListTile(
+          //           title: Text(locations[index],style: Theme.of(context).textTheme.headline6,),
+          //           trailing: Text('${nftCount[index]}'),
+          //         );
+          //       }),
+          // )
+        ],
+      )
     );
   }
 
@@ -102,15 +131,50 @@ class NFTCollection extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 175,
-      width: 175,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.0),
-        color: canvasColor,
+    return Card(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
-      // color: canvasColor,
-      child: Image.asset('assets/images/$index.png',fit: BoxFit.fill,),
+      margin: EdgeInsets.all(SizeConfig.screenWidth*.05),
+      child: Container(
+        constraints: const BoxConstraints.expand(
+          height: 175.0,
+          width: 175.0,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          color: canvasColor,
+        ),
+        // color: canvasColor,
+        child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
+            child: Image.asset('assets/images/$index.png',fit: BoxFit.fill,)),
+      ),
+    );
+  }
+}
+
+class NFTCollectionAvatar extends StatelessWidget{
+
+  final int index;
+
+  const NFTCollectionAvatar({Key? key, required this.index}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: SizeConfig.screenWidth/5,
+              backgroundImage: AssetImage('assets/images/$index.png',),
+            ),
+            Text(nftCollections[index],textAlign: TextAlign.center,)
+          ],
+        ),
+      ),
     );
   }
 }

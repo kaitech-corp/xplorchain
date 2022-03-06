@@ -21,9 +21,6 @@ various rewards including Common tiered NTF's.
 - Google Cloud Platform
 
 ## Crypto Platforms
-(Subject to change)
-- Polygon
-- Cardano
 - XRPL
 
 (c) 2022 Kai Technologies Corp. <Randy@kaitechcorp.com>

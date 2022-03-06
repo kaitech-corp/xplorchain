@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nfkeychain_mvp/screens/home/home.dart';
-
+import 'package:sizer/sizer.dart';
+import 'screens/home/home.dart';
 import 'services/responsive/responsive_wrapper.dart';
 
 void main() {
@@ -13,15 +13,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'NFKeychain',
-      theme: ThemeData.dark(
-      ),
-      builder: (context, widget) {
-        return ResponsiveWrapperBuilder(context, widget);
-      },
-      home:  MyHomePage(),
+    return  Sizer(
+      builder: (context,orientation, deviceType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'NFKeychain',
+          theme: ThemeData.dark(
+
+          ),
+          builder: (context, widget) {
+            return ResponsiveWrapperBuilder(context, widget);
+          },
+          home: const MyHomePage(),
+        );
+      }
     );
   }
 }
