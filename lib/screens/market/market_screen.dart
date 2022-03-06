@@ -95,27 +95,30 @@ class Market extends StatelessWidget{
             ),
             items: List.generate(5, (index) => NFTCollection(index: index)),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Text('My Destinations', style: Theme.of(context).textTheme.headline5,),
-          //       Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
-          //     ],
-          //   ),
-          // ),
-          // Container(
-          //   color: Colors.blueGrey,
-          //   child: ListView.builder(
-          //       itemCount: 4,
-          //       itemBuilder: (context, index){
-          //         return ListTile(
-          //           title: Text(locations[index],style: Theme.of(context).textTheme.headline6,),
-          //           trailing: Text('${nftCount[index]}'),
-          //         );
-          //       }),
-          // )
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Travel Experiences', style: Theme.of(context).textTheme.headline5,),
+                // Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
+              ],
+            ),
+          ),
+          Container(
+            height: SizeConfig.screenHeight/4,
+            width: double.infinity,
+            padding: const EdgeInsets.all(8.0),
+            // color: Colors.blueGrey,
+            child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (context, index){
+                  return ListTile(
+                    title: Text(locations[index],style: Theme.of(context).textTheme.headline6,),
+                    trailing: Text('${nftCount[index]}'),
+                  );
+                }),
+          )
         ],
       )
     );
