@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-Widget ResponsiveWrapperBuilder(context, widget){
+Widget responsiveWrapperBuilder(context, widget){
   return ResponsiveWrapper.builder(
     BouncingScrollWrapper.builder(context, widget),
     maxWidth: 1200,

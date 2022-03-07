@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
@@ -17,7 +17,8 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: CustomShape(),
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
           height: SizeConfig.screenHeight*.22,
           width: double.infinity,
           decoration: const BoxDecoration(
@@ -42,28 +43,47 @@ class CustomAppBar extends StatelessWidget {
           ),
           child: Padding(
               padding: const EdgeInsets.fromLTRB(8.0,0,8.0,0),
-              child: AppBar(
-                toolbarHeight: SizerUtil.deviceType == DeviceType.tablet ? SizeConfig.screenHeight*.1 : SizeConfig.screenHeight*.075,
-                shadowColor: const Color(0x00000000),
-                backgroundColor: const Color(0x00000000),
-                actions: <Widget>[
-                  Center(
-                    child: InkWell(
-                      onTap: (){
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: (){
 
-                      },
-                      child: Hero(
-                        tag: "234",
-                        transitionOnUserGestures: true,
-                        child: CircleAvatar(
-                          radius: SizeConfig.screenWidth/8.0,
-                          backgroundImage: AssetImage(earthImage),
-                        ),
+                    },
+                    child: Hero(
+                      tag: "234",
+                      transitionOnUserGestures: true,
+                      child: CircleAvatar(
+                        radius: SizeConfig.screenWidth*.1,
+                        backgroundImage: AssetImage(earthImage),
                       ),
                     ),
                   ),
+                  const SizedBox(width: 4,),
+                  Text('Travel-Chain', style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),)
                 ],
               )
+              // AppBar(
+              //   toolbarHeight: SizerUtil.deviceType == DeviceType.tablet ? SizeConfig.screenHeight*.1 : SizeConfig.screenHeight*.075,
+              //   shadowColor: const Color(0x00000000),
+              //   backgroundColor: const Color(0x00000000),
+              //   actions: <Widget>[
+              //     InkWell(
+              //       onTap: (){
+              //
+              //       },
+              //       child: Hero(
+              //         tag: "234",
+              //         transitionOnUserGestures: true,
+              //         child: CircleAvatar(
+              //           radius: SizeConfig.screenWidth/8.0,
+              //           backgroundImage: AssetImage(earthImage),
+              //         ),
+              //       ),
+              //     ),
+              //     Text('Travel-Chain', style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),)
+              //   ],
+              // )
           )
       ),
     );

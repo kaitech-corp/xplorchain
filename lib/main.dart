@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'screens/home/home.dart';
 import 'services/responsive/responsive_wrapper.dart';
@@ -15,14 +19,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Sizer(
       builder: (context,orientation, deviceType) {
+
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'NFKeychain',
-          theme: ThemeData.dark(
-
+          theme: ThemeData(
+            fontFamily: GoogleFonts.literata().fontFamily,
+            textTheme: GoogleFonts.literataTextTheme(
+                Theme.of(context).textTheme
+            ),
           ),
+          darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.dark,
           builder: (context, widget) {
-            return ResponsiveWrapperBuilder(context, widget);
+            return responsiveWrapperBuilder(context, widget);
           },
           home: const MyHomePage(),
         );

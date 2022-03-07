@@ -2,10 +2,13 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:nil/nil.dart';
 import 'package:travel_chain_mvp/screens/home/mobile.dart';
+import 'package:travel_chain_mvp/screens/market/market_screen.dart';
 import 'package:travel_chain_mvp/screens/my_collection/my_collection.dart';
 import 'package:travel_chain_mvp/screens/search/search.dart';
 import 'package:travel_chain_mvp/screens/settings/settings.dart';
+import 'package:travel_chain_mvp/widgets/app_animation.dart';
 import 'package:travel_chain_mvp/widgets/custom_app_bar.dart';
 
 import '../../services/size_config/size_config.dart';
@@ -20,9 +23,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  final ScrollController controller = ScrollController();
+
+
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = const <Widget>[
-    MobileScreen(),
+    Market(),
     Search(),
     MyCollection(),
     Settings(),
@@ -36,6 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return (kIsWeb) ? const Scaffold(
@@ -44,13 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     ) :
     Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          const CustomAppBar(),
-          Padding(
-            padding: EdgeInsets.only(
-                top: SizeConfig.screenHeight*.1785),
-            child: _widgetOptions.elementAt(_selectedIndex),
+          if(_selectedIndex == 0) AppBarAnimation(controller: controller,),
+          Expanded(
+            child: SingleChildScrollView(
+              controller: controller,
+                child: _widgetOptions.elementAt(_selectedIndex)),
           ),
         ],
       ),
