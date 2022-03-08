@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_chain_mvp/models/nft_details.dart';
+import 'package:travel_chain_mvp/screens/home/home.dart';
+import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 import '../../services/constants/constants.dart';
@@ -15,17 +18,11 @@ class Market extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Column(
-      // crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Freshly Minted", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
-              // Text('View all', style: Theme.of(context).textTheme.subtitle2),
-            ],
-          ),
+          child: Text("Freshly Minted", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/4,
@@ -34,18 +31,12 @@ class Market extends StatelessWidget{
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
-                return NFTCollection(index: index);
+                return NFTCollection(index: '$index 001');
               }),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Popular Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
-              // Text('View all', style: Theme.of(context).textTheme.subtitle2),
-            ],
-          ),
+          child: Text("Popular Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/4,
@@ -54,18 +45,12 @@ class Market extends StatelessWidget{
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
-                return NFTCollection(index: index);
+                return NFTCollection(index: '$index 002');
               }),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Hot Collections", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
-              // Text('View all', style: Theme.of(context).textTheme.subtitle2),
-            ],
-          ),
+          child: Text("Hot Collections", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/4,
@@ -74,18 +59,12 @@ class Market extends StatelessWidget{
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
-                return NFTCollectionAvatar(index: index);
+                return NFTCollectionAvatar(index: '$index 004');
               }),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Nearby Gems', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
-              // Text('View all', style: Theme.of(context).textTheme.subtitle2),
-            ],
-          ),
+          child: Text('Nearby Gems', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         CarouselSlider(
           options: CarouselOptions(
@@ -94,7 +73,7 @@ class Market extends StatelessWidget{
             aspectRatio: 1.75,
             enlargeCenterPage: true,
           ),
-          items: List.generate(5, (index) => NFTCollection(index: index)),
+          items: List.generate(5, (index) => NFTCollection(index: '$index 003')),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0),
@@ -133,30 +112,32 @@ class Market extends StatelessWidget{
 
 class NFTCollection extends StatelessWidget{
 
-  final int index;
+  final String index;
 
   const NFTCollection({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-      ),
-      margin: EdgeInsets.all(SizeConfig.screenWidth*.05),
-      child: Container(
-        constraints: const BoxConstraints.expand(
-          height: 175.0,
-          width: 175.0,
+    return GestureDetector(
+      onTap: (){
+        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
+      },
+      child: Card(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
         ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          color: canvasColor,
+        margin: EdgeInsets.all(SizeConfig.screenWidth*.05),
+        child: Hero(
+          tag: index,
+          child: SizedBox(
+            height: 175.0,
+            width: 175.0,
+            // color: canvasColor,
+            child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(15)),
+                child: Image.asset('assets/images/${index[0]}.png',fit: BoxFit.fill,)),
+          ),
         ),
-        // color: canvasColor,
-        child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(15)),
-            child: Image.asset('assets/images/$index.png',fit: BoxFit.fill,)),
       ),
     );
   }
@@ -164,23 +145,33 @@ class NFTCollection extends StatelessWidget{
 
 class NFTCollectionAvatar extends StatelessWidget{
 
-  final int index;
+  final String index;
 
   const NFTCollectionAvatar({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: InkWell(
-        child: Column(
-          children: [
-            CircleAvatar(
-              radius: SizeConfig.screenWidth/5,
-              backgroundImage: AssetImage('assets/images/$index.png',),
-            ),
-            Text(nftCollections[index],textAlign: TextAlign.center,)
-          ],
+    return GestureDetector(
+      onTap: (){
+        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: InkWell(
+          child: Column(
+            children: [
+              Expanded(
+                child: Hero(
+                  tag: index,
+                  child: CircleAvatar(
+                    radius: SizeConfig.screenWidth/5,
+                    backgroundImage: AssetImage('assets/images/${index[0]}.png',),
+                  ),
+                ),
+              ),
+              Text(nftCollections[int.parse(index[0])],textAlign: TextAlign.center,)
+            ],
+          ),
         ),
       ),
     );

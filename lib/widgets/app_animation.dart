@@ -1,7 +1,5 @@
 
-import 'package:clippy_flutter/arc.dart';
 import 'package:flutter/material.dart';
-import 'package:nil/nil.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
@@ -51,7 +49,7 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
     return ClipPath(
         clipper: ArcShape(x: 0, y: _arcHeight),
         child:  AnimatedContainer(
-          duration: const Duration(milliseconds: 500),
+          duration: animationDuration,
             height: _height,
             width: double.infinity,
             // clipBehavior: ,

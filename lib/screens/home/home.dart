@@ -2,17 +2,18 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:nil/nil.dart';
-import 'package:travel_chain_mvp/screens/home/mobile.dart';
 import 'package:travel_chain_mvp/screens/market/market_screen.dart';
 import 'package:travel_chain_mvp/screens/my_collection/my_collection.dart';
 import 'package:travel_chain_mvp/screens/search/search.dart';
 import 'package:travel_chain_mvp/screens/settings/settings.dart';
+import 'package:travel_chain_mvp/services/locator.dart';
+import 'package:travel_chain_mvp/services/navigation/navigation_service.dart';
 import 'package:travel_chain_mvp/widgets/app_animation.dart';
-import 'package:travel_chain_mvp/widgets/custom_app_bar.dart';
 
 import '../../services/size_config/size_config.dart';
 import 'desktop.dart';
+
+var navigationService = locator<NavigationService>();
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key,}) : super(key: key);
