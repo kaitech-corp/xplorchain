@@ -1,5 +1,5 @@
 
-# Travel-Chain Code of Conduct
+# Xplorchain Code of Conduct
 
 ## Our Pledge
 

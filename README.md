@@ -1,12 +1,12 @@
-# Travel-Chain MVP
+# Travel-Chain MVP (Rebranding as Xplorchain)
 
-Travel-Chain is a NFT market for travel-based, digital art used as digital keychains. This is a MVP.
+Xplorchain is a NFT marketplace for travel-based, digital art used as digital keychains. This is a MVP.
 
 ## Features
 (Subject to change/not limited to)
 
 - Users can earn, buy, sell, and trade Travel-based NFT's.
-- Visually display collection while showing off travel history.
+- Visually display collection while showing off travel history and experiences.
 - Vote on top rated NFT's for location/POI based Tier levels (i.e. Common, Rare, Legendary).
 - Earn "Crew" tokens by traveling and syncing your location with Travel Crew. Tokens can be traded for
 various rewards including Common tiered NTF's.
@@ -23,7 +23,7 @@ various rewards including Common tiered NTF's.
 ## Crypto Platforms
 - XRPL
 
-(c) 2022 Kai Technologies Corp. <Randy@kaitechcorp.com>
+(c) 2022 Kai Technologies Corp. Randy@kaitechcorp.com
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

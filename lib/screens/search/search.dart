@@ -10,8 +10,7 @@ class Search extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Column(
+      child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
@@ -24,15 +23,6 @@ class Search extends StatelessWidget{
                 ],
               ),
             ),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                autoPlayAnimationDuration: const Duration(seconds: 3),
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
-              ),
-              items: List.generate(5, (index) => NFTCollection(index: index)),
-            ),
             // ListView.builder(
             //   itemCount: ,
             //   itemBuilder: (context, index){
@@ -41,7 +31,6 @@ class Search extends StatelessWidget{
             //     )
             //   })
           ],
-        ),
       ),
     );
   }

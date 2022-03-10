@@ -1,6 +1,6 @@
-# Contribute to Travel-Chain (all versions including subsequent name changes)
+# Contribute to Xplorchain (all versions including subsequent name changes)
 
-Thank you for contributing! Travel-Chain is an open-source project, maintained and operated by Kai Technologies Corp. that welcomes contributions from everyone.
+Thank you for contributing! Xplorchain is an open-source project, maintained and operated by Kai Technologies Corp. that welcomes contributions from everyone.
 Please read our [code of conduct](https://github.com/kaitech-corp/travel-chain/blob/develop/CODE_OF_CONDUCT.md).
 
 This document outlines the procedures and what to expect when contributing a bug report, a feature request, or new code via a pull request.
@@ -20,14 +20,14 @@ It really helps us efficiently process your contribution!
 Found a bug? Tell us all about it!
 
 - If you notice something odd happening, try to make it happen again (reproduce it).
-- If you can reproduce it, try to figure out if it's caused by the video format that you use or by Travel-Chain.
-- If it's caused by Travel-Chain, make sure it **still occurs in the current development version** (where we continually fix problems) by checking out with git to the current `dev` branch of Travel-Chain.
-- If it looks like it's caused by Travel-Chain (or if you're not sure) and still occurs on the current `develop` branch, submit a bug report to the [issue tracker]().
+- If you can reproduce it, try to figure out if it's caused by the video format that you use or by Xplorchain.
+- If it's caused by Xplorchain, make sure it **still occurs in the current development version** (where we continually fix problems) by checking out with git to the current `dev` branch of Xplorchain.
+- If it looks like it's caused by Xplorchain (or if you're not sure) and still occurs on the current `develop` branch, submit a bug report to the [issue tracker]().
     - **Search the issue tracker** to make sure your problem has not been reported yet. If you find a relevant bug, comment there, even if it's an old or closed one!
     - Only if you don't find a relevant issue, open a new issue. A new issue does not generate more exposure/visibility than commenting on an existing one.
     - Make sure you give it a good title! A good title explains the core of the problem in about 5-10 words. (It's sometimes easier to write the title after you've written the description.)
     - In the description, include the following details:
-        1. **relevant system information** such as which Travel-Chain version, operating system and IDE you are using,
+        1. **relevant system information** such as which Xplorchain version, operating system and IDE you are using,
         2. what you were doing when you noticed the bug,
         3. what you expected to happen,
         4. what actually happened, and how to make it happen again (ie how to reproduce the bug).
@@ -43,7 +43,7 @@ Found a bug? Tell us all about it!
 
 We already have a formal [roadmap]() for the project but nevertheless we are a community of people who each contributes to sections that we feel are important for the project.
 Feature requests are therefore mostly a way of us discussing/feeling out together where we'd like the project to go.
-This can sometimes involve a lot of discussion, as everyone uses Travel-Chain differently.
+This can sometimes involve a lot of discussion, as everyone uses Xplorchain differently.
 
 Feature requests are created as Github Issues, just like bugs.
 Feature requests are also where code that you or anyone else would like to include in a future pull request is **discussed before being implemented!**
@@ -55,12 +55,12 @@ Before opening a feature request, please search the issue tracker and confirm an
 - We are a friendly and open team, but communication over the internet can be difficult, so please be patient and understanding as we work through your requests.
   Usually a lot of discussion just means that we haven't thought about what you're requesting before, which is a good thing!
 - Please don't expect that a general agreement in the discussion that a feature request is a good idea means it will get made immediately.
-  As with most open source projects, the fastest way to get a feature made is to make it yourself, or if you are not a programmer, make friends with someone who is, introduce them to Travel-Chain, and ask them to make it for you.
+  As with most open source projects, the fastest way to get a feature made is to make it yourself, or if you are not a programmer, make friends with someone who is, introduce them to Xplorchain, and ask them to make it for you.
 
 ## <a id='contributing-code'></a>Contribute code
 
 We are more likely to accept your code if we feel like it has been discussed already.
-If you are submitting a new feature, it's best if the feature has been discussed beforehand using [feature request](#feature-requests) or submitting feedback within the Travel-Chain App.
+If you are submitting a new feature, it's best if the feature has been discussed beforehand using [feature request](#feature-requests) or submitting feedback within the Xplorchain App.
 
 - Try and match the style and practices you find in the code you are working with.
 - Please write _descriptive commit messages_ for each of the commits that you make.
@@ -69,7 +69,7 @@ If you are submitting a new feature, it's best if the feature has been discussed
 #### Organising your code
 
 
-- Submit from a dedicated branch on your own repository **branched off from current `develop`**. Your branch should be only about a single topic or area of Travel-Chain.
+- Submit from a dedicated branch on your own repository **branched off from current `develop`**. Your branch should be only about a single topic or area of Xplorchain.
   If you have multiple things to submit, make separate branches for each topic and submit multiple pull requests.
   (This makes it easier to review different parts of your code separately, and get it into the core faster.)
 - The branch name should start with either __feature-__ for features or __bugfix-__ for bug fixes.
@@ -83,7 +83,7 @@ If you are submitting a new feature, it's best if the feature has been discussed
 
 #### Submitting the pull request
 
-- Submit your pull request to the __`dev`__ branch of Travel-Chain (which you branched off from), _not_ the `master` branch.
+- Submit your pull request to the __`dev`__ branch of Xplorchain (which you branched off from), _not_ the `master` branch.
 - All pull requests that contain changes that need to be in the changelog **must include respective `CHANGELOG.md`**.
 - In the comments field on your new pull request, enter a description of everything that the code in the pull request does.
     - This description is the first contact most of the core team will have with your code, so you should use it to explain why your pull request is awesome and we should accept it.
