@@ -47,7 +47,6 @@ dependencies:
   nil: ^1.1.1
   readmore: ^2.1.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
