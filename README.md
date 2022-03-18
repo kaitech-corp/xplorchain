@@ -1,4 +1,4 @@
-# Travel-Chain MVP (Rebranding as Xplorchain)
+# Xplorchain MVP (Previously Travel-Chain)
 
 Xplorchain is a NFT marketplace for travel-based, digital art used as digital keychains. This is a MVP.
 
@@ -17,7 +17,8 @@ various rewards including Common tiered NTF's.
 
 - Flutter/Dart
 - Firebase
-- Typescript
+- Javascript
+- Python 
 - Google Cloud Platform
 
 ## Crypto Platforms

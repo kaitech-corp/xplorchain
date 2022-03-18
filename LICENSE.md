@@ -629,11 +629,7 @@ to attach them to the start of each source file to most effectively
 state the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
-    Travel Crew - a mobile app for friends to share and organize 
-    travel plans and even create full itineraries together. It is 
-    a social platform that allows users to follow friends, view 
-    upcoming trips, vote on lodging and activities and even split 
-    expenses!
+    Xplorchain - a travel-focused NFT marketplace.
     Copyright (C) Kai Technologies Corp. 2022  Randy Nolden
 
     This program is free software: you can redistribute it and/or modify
