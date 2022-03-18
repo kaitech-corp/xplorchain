@@ -3,17 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/screens/market/market_screen.dart';
+import 'package:travel_chain_mvp/screens/menu/menu_drawer.dart';
 import 'package:travel_chain_mvp/screens/my_collection/my_collection.dart';
 import 'package:travel_chain_mvp/screens/search/search.dart';
 import 'package:travel_chain_mvp/screens/settings/settings.dart';
-import 'package:travel_chain_mvp/services/locator.dart';
-import 'package:travel_chain_mvp/services/navigation/navigation_service.dart';
 import 'package:travel_chain_mvp/widgets/app_animation.dart';
+import 'package:travel_chain_mvp/widgets/app_animation_desktop.dart';
 
 import '../../services/size_config/size_config.dart';
 import 'desktop.dart';
 
-var navigationService = locator<NavigationService>();
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key,}) : super(key: key);
@@ -51,9 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return (kIsWeb) ? const Scaffold(
-      body: SafeArea(
-        child: DesktopScreen(),
+    return (kIsWeb) ?  Scaffold(
+      drawer: const MenuDrawer(),
+      body: Column(
+        children: [
+          if(_selectedIndex == 0) AppBarAnimationDesktop(controller: controller,),
+          DesktopScreen(controller: controller,),
+        ],
       ),
     ) :
     Scaffold(

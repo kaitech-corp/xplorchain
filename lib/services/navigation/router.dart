@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/screens/nft_details/nft_details.dart';
+import 'package:travel_chain_mvp/screens/nft_details/nft_details_desktop.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
@@ -14,6 +15,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: NFTDetails(model: args,),
+      );
+    case nftDetailsDesktopRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: NFTDetailsDesktop(model: args,),
       );
     // case AddNewActivityRoute:
     //   return _getPageRoute(

@@ -11,3 +11,5 @@ void setupLocator() {
 
   locator.registerLazySingleton(() => NavigationService());
 }
+
+var navigationService = locator<NavigationService>();

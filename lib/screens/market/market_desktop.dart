@@ -10,10 +10,8 @@ import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 import '../../services/constants/constants.dart';
 
 
-
-
-class Market extends StatelessWidget{
-  const Market({Key? key}) : super(key: key);
+class MarketDesktop extends StatelessWidget{
+  const MarketDesktop({Key? key}) : super(key: key);
 
 
   @override
@@ -26,7 +24,7 @@ class Market extends StatelessWidget{
           child: Text("Freshly Minted", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
         ),
         SizedBox(
-          height: SizeConfig.screenHeight/4,
+          height: SizeConfig.screenHeight/3,
           width: double.infinity,
           child: ListView.builder(
               itemCount: 5,
@@ -40,7 +38,7 @@ class Market extends StatelessWidget{
           child: Text("Popular Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
-          height: SizeConfig.screenHeight/4,
+          height: SizeConfig.screenHeight/3,
           width: double.infinity,
           child: ListView.builder(
               itemCount: 5,
@@ -54,7 +52,7 @@ class Market extends StatelessWidget{
           child: Text("Hot Collections", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
-          height: SizeConfig.screenHeight/4,
+          height: SizeConfig.screenHeight/3,
           width: double.infinity,
           child: ListView.builder(
               itemCount: 5,
@@ -67,14 +65,18 @@ class Market extends StatelessWidget{
           padding: const EdgeInsets.all(8.0),
           child: Text('Nearby Gems', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
-        CarouselSlider(
-          options: CarouselOptions(
-            autoPlay: true,
-            autoPlayAnimationDuration: const Duration(seconds: 3),
-            aspectRatio: 1.75,
-            enlargeCenterPage: true,
+        SizedBox(
+          height: SizeConfig.screenHeight/3,
+          width: double.infinity,
+          child: CarouselSlider(
+            options: CarouselOptions(
+              autoPlay: true,
+              autoPlayAnimationDuration: const Duration(seconds: 3),
+              // aspectRatio: 2,
+              enlargeCenterPage: false,
+            ),
+            items: List.generate(5, (index) => NFTCollection(index: '$index 003')),
           ),
-          items: List.generate(5, (index) => NFTCollection(index: '$index 003')),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0),
@@ -87,7 +89,7 @@ class Market extends StatelessWidget{
           ),
         ),
         SizedBox(
-          height: SizeConfig.screenHeight/4,
+          height: SizeConfig.screenHeight/3,
           width: double.infinity,
           // padding: const EdgeInsets.all(8.0),
           // color: Colors.blueGrey,
@@ -96,7 +98,7 @@ class Market extends StatelessWidget{
               itemBuilder: (context, index){
                 return Card(
                   shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))
+                      borderRadius: BorderRadius.all(Radius.circular(10))
                   ),
                   color: Colors.black,
                   child: ListTile(
@@ -121,7 +123,7 @@ class NFTCollection extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
+        navigationService.navigateTo(nftDetailsDesktopRoute, arguments: NFTDetailsModel(index: index));
       },
       child: Card(
         shape: const RoundedRectangleBorder(
@@ -154,7 +156,7 @@ class NFTCollectionAvatar extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
+        navigationService.navigateTo(nftDetailsDesktopRoute, arguments: NFTDetailsModel(index: index));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -165,7 +167,7 @@ class NFTCollectionAvatar extends StatelessWidget{
                 child: Hero(
                   tag: index,
                   child: CircleAvatar(
-                    radius: SizeConfig.screenWidth/5,
+                    radius: SizeConfig.screenWidth/3,
                     backgroundImage: AssetImage('assets/images/${index[0]}.png',),
                   ),
                 ),
