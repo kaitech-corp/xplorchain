@@ -53,7 +53,7 @@ class MarketDesktop extends StatelessWidget{
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
-          width: double.infinity,
+          width: SizeConfig.screenWidth,
           child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
@@ -65,17 +65,19 @@ class MarketDesktop extends StatelessWidget{
           padding: const EdgeInsets.all(8.0),
           child: Text('Nearby Gems', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
-        SizedBox(
-          height: SizeConfig.screenHeight/3,
-          width: double.infinity,
-          child: CarouselSlider(
-            options: CarouselOptions(
-              autoPlay: true,
-              autoPlayAnimationDuration: const Duration(seconds: 3),
-              // aspectRatio: 2,
-              enlargeCenterPage: false,
+        Center(
+          child: SizedBox(
+            height: SizeConfig.screenHeight/3,
+            width: SizeConfig.screenWidth*.5,
+            child: CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: true,
+                autoPlayAnimationDuration: const Duration(seconds: 3),
+                // aspectRatio: 2,
+                enlargeCenterPage: false,
+              ),
+              items: List.generate(5, (index) => NFTCollection(index: '$index 003')),
             ),
-            items: List.generate(5, (index) => NFTCollection(index: '$index 003')),
           ),
         ),
         Padding(

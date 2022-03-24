@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:readmore/readmore.dart';
 import 'package:travel_chain_mvp/models/nft_details.dart';
-import 'package:travel_chain_mvp/screens/market/market_screen.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/constants/functions.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+
+import '../market/market_desktop.dart';
 
 class NFTDetailsDesktop extends StatefulWidget {
 

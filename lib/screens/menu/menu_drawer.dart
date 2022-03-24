@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 import '../../services/constants/constants.dart';
 
+///Example menu
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({Key? key}) : super(key: key);
 
@@ -35,7 +36,7 @@ class MenuDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.people),
-                  title: Text('TC Members',
+                  title: Text('Profile',
                       style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                     // navigationService.navigateTo(UsersRoute);
@@ -43,10 +44,10 @@ class MenuDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(
-                    Icons.message,
+                    Icons.search,
                   ),
                   title:
-                  Text('Chats', style: Theme.of(context).textTheme.subtitle1),
+                  Text('Search', style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                     // navigationService.navigateTo(DMChatListPageRoute);
                   },

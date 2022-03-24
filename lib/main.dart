@@ -7,11 +7,12 @@ import 'package:travel_chain_mvp/services/locator.dart';
 import 'screens/home/home.dart';
 import 'services/navigation/navigation_service.dart';
 import 'services/navigation/router.dart';
+import 'services/project_initializer/project_initializer.dart';
 import 'services/responsive/responsive_wrapper.dart';
 
 void main() async {
   ///Initialize get it locator.
-  setupLocator();
+  projectInitializer();
   
   runApp(const MyApp());
 }

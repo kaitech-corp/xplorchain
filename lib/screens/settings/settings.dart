@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
 import '../../services/constants/constants.dart';
 
 
-
+///Account settings page
 class Settings extends StatelessWidget{
   const Settings({Key? key}) : super(key: key);
 

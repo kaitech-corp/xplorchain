@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
+import 'package:travel_chain_mvp/services/locator.dart';
+import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
+///App Bar animation
 class AppBarAnimationDesktop extends StatefulWidget {
 
   final ScrollController controller;
@@ -98,19 +101,22 @@ class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
                               ),
                             ),
                           ),
-                          Text('Xplor Chain', style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),),
+                          Text('XplorChain', style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),),
                         ],
                       ),
                       Row(
-                        children: const [
-                          TextField(maxLines: 1,),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: ElevatedButton(onPressed: null, child: Text('Sign in')),
+                        children: [
+                          SizedBox(
+                            height: SizeConfig.screenHeight*.05,
+                              width: SizeConfig.screenWidth*.25,
+                              child: const TextField(maxLines: 1,)),
+                           Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(myCollectionRoute), child: Text('Sign in', style: Theme.of(context).textTheme.headline6,)),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: ElevatedButton(onPressed: null, child: Text('Mint')),
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(onPressed: null, child: Text('Mint', style: Theme.of(context).textTheme.headline6,)),
                           ),
                         ],
                       )

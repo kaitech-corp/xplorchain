@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../market/market_screen.dart';
+import 'package:travel_chain_mvp/screens/market/market_desktop.dart';
+
 import '../my_collection/my_collection.dart';
 
-
+///Example Slider Menu
 class SliderMenu extends StatelessWidget {
   const SliderMenu({
     Key? key,
@@ -38,7 +39,7 @@ class SliderMenu extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Market(),
+                child: MarketDesktop(),
               )),
             );
           },
