@@ -97,5 +97,31 @@
       loadMainDartJs();
     }
   </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
+
+  <script>
+  // Import the functions needed from the SDKs used
+  import { initializeApp } from "firebase/app";
+  import { getAnalytics } from "firebase/analytics";
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC2K_TtbMatLC-VV2mdksx_48H9GN9kInE",
+    authDomain: "coherent-window-339921.firebaseapp.com",
+    projectId: "coherent-window-339921",
+    storageBucket: "coherent-window-339921.appspot.com",
+    messagingSenderId: "1097855868527",
+    appId: "1:1097855868527:web:31cd4803bd10a343b9f79a",
+    measurementId: "G-N3V89M42VE"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  </script>
 </body>
 </html>

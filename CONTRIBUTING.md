@@ -1,10 +1,10 @@
 # Contribute to Xplorchain (all versions including subsequent name changes)
 
 Thank you for contributing! Xplorchain is an open-source project, maintained and operated by Kai Technologies Corp. that welcomes contributions from everyone.
-Please read our [code of conduct](https://github.com/kaitech-corp/travel-chain/blob/develop/CODE_OF_CONDUCT.md).
+Please read our [code of conduct](https://github.com/kaitech-corp/xplorchain/blob/develop/CODE_OF_CONDUCT.md).
 
 This document outlines the procedures and what to expect when contributing a bug report, a feature request, or new code via a pull request.
-If you want to contribute documentation have a look at the [Wiki](https://github.com/kaitech-corp/travel-chain/wiki).
+If you want to contribute documentation have a look at the [Wiki](https://github.com/kaitech-corp/xplorchain/wiki).
 To contribute tutorials or help documents, get in touch with the _Documentation leader_, Randy Nolden (Randy@kaitechcorp.com).
 
 **Please read** and **follow these guidelines** before submitting a bug report, feature request or pull request.
@@ -37,11 +37,10 @@ Found a bug? Tell us all about it!
   You might be asked some questions about it, or you might not.
   If you don't hear back for a while don't despair, it's not being ignored!
   We're simply a busy bunch, but you will hear back eventually.
-
-
+  
 ## <a id='feature-requests'></a>Request a feature
 
-We already have a formal [roadmap]() for the project but nevertheless we are a community of people who each contributes to sections that we feel are important for the project.
+We already have a formal [roadmap](https://github.com/kaitech-corp/xplorchain/wiki/RoadMap) for the project but nevertheless we are a community of people who each contributes to sections that we feel are important for the project.
 Feature requests are therefore mostly a way of us discussing/feeling out together where we'd like the project to go.
 This can sometimes involve a lot of discussion, as everyone uses Xplorchain differently.
 
@@ -60,14 +59,13 @@ Before opening a feature request, please search the issue tracker and confirm an
 ## <a id='contributing-code'></a>Contribute code
 
 We are more likely to accept your code if we feel like it has been discussed already.
-If you are submitting a new feature, it's best if the feature has been discussed beforehand using [feature request](#feature-requests) or submitting feedback within the Xplorchain App.
+If you are submitting a new feature, it's best if the feature has been discussed beforehand using [feature request](#feature-requests).
 
 - Try and match the style and practices you find in the code you are working with.
 - Please write _descriptive commit messages_ for each of the commits that you make.
   They don't have to be in-depth, just a brief summary of what the commit contains.
 
 #### Organising your code
-
 
 - Submit from a dedicated branch on your own repository **branched off from current `develop`**. Your branch should be only about a single topic or area of Xplorchain.
   If you have multiple things to submit, make separate branches for each topic and submit multiple pull requests.

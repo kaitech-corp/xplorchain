@@ -30,3 +30,7 @@ const price = "price";
 
 const animationDuration = Duration(milliseconds: 500);
 const animationDuration2 = Duration(milliseconds: 1000);
+
+const version = '0.1';
+
+var appBarDefaultPadding = SizeConfig.screenWidth*.1;

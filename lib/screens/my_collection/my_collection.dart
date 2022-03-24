@@ -1,51 +1,87 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
+import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+
 import '../../services/constants/constants.dart';
 
 
-
-class MyCollection extends StatelessWidget{
+///Display of users NFT collection given wallet credentials.
+///Current credentials are generated using DevNet credentials stored on a env file.
+class MyCollection extends StatefulWidget{
   const MyCollection({Key? key}) : super(key: key);
+
+  @override
+  State<MyCollection> createState() => _MyCollectionState();
+}
+
+class _MyCollectionState extends State<MyCollection> {
+
+  bool isPressed = false;
+  bool isGetTokensPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Container(
+          height: SizeConfig.screenHeight,
+          width: SizeConfig.screenWidth,
+          color: canvasColor,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
                 children: [
-                  Text('My Keychains', style: Theme.of(context).textTheme.headline5,),
-                  Text('view all', style: Theme.of(context).textTheme.subtitle2),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                        onPressed: (){
+                          setState(() {
+                            isPressed = !isPressed;
+                          });
+                        },
+                        child: Text("Connect",style: Theme.of(context).textTheme.headline6,)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            isGetTokensPressed = !isGetTokensPressed;
+                          });
+                      },
+                        child: Text("Get Tokens",style: Theme.of(context).textTheme.headline6,)),
+                  ),
                 ],
               ),
-            ),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                autoPlayAnimationDuration: const Duration(seconds: 3),
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
+              Center(
+                child: FutureBuilder<String>(
+                  future: isPressed ? CloudFunction().connectXRPL(): null,
+                  builder: (context, response){
+                    if(response.hasData){
+                      return Text(response.data.toString());
+                    } else{
+                      return const Text("No wallet connected");
+                    }
+                  },
+                ),
               ),
-              items: List.generate(5, (index) => NFTCollection(index: index)),
-            ),
-            // ListView.builder(
-            //   itemCount: ,
-            //   itemBuilder: (context, index){
-            //     return ListTile(
-            //
-            //     )
-            //   })
-          ],
-        ),
+              Center(
+                child: FutureBuilder<dynamic>(
+                  future: isGetTokensPressed ? CloudFunction().getTokens() : null,
+                  builder: (context, response){
+                    if(response.hasData){
+                      return Text(response.data.toString());
+                    } else{
+                      return const Text("No wallet connected");
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
       ),
     );
   }
-
 }
 
 class NFTCollection extends StatelessWidget{

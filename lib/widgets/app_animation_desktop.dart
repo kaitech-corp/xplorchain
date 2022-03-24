@@ -1,24 +1,27 @@
 
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
+import 'package:travel_chain_mvp/services/locator.dart';
+import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
-class AppBarAnimation extends StatefulWidget {
+///App Bar animation
+class AppBarAnimationDesktop extends StatefulWidget {
 
   final ScrollController controller;
 
-  const AppBarAnimation({
+  const AppBarAnimationDesktop({
     Key? key,
     required this.controller,
   }) : super(key: key);
 
   @override
-  _AppBarAnimationState createState() => _AppBarAnimationState();
+  _AppBarAnimationDesktopState createState() => _AppBarAnimationDesktopState();
 }
 
-class _AppBarAnimationState extends State<AppBarAnimation> {
+class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
 
-  double _height = SizeConfig.screenHeight*.22;
+  double _height = SizeConfig.screenHeight*.18;
   double _arcHeight = 100;
 
   @override
@@ -31,13 +34,13 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
     if(mounted){
       if (widget.controller.offset < 100) {
         setState(() {
-          _height = SizeConfig.screenHeight * .22 -
+          _height = SizeConfig.screenHeight * .18 -
               SizeConfig.screenHeight * .1 * (widget.controller.offset / 100);
           _arcHeight = 100 - widget.controller.offset * .85;
         });
       } else {
         setState(() {
-          _height = SizeConfig.screenHeight * .15;
+          _height = SizeConfig.screenHeight * .13;
           _arcHeight = 0;
         });
       }
@@ -49,7 +52,7 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
     return ClipPath(
         clipper: ArcShape(x: 0, y: _arcHeight),
         child:  AnimatedContainer(
-          duration: animationDuration,
+            duration: animationDuration,
             height: _height,
             width: double.infinity,
             // clipBehavior: ,
@@ -74,28 +77,49 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
               ],
             ),
             child: Padding(
-                padding: const EdgeInsets.fromLTRB(8.0,0,8.0,0),
+                padding: EdgeInsets.fromLTRB(appBarDefaultPadding*2,0,appBarDefaultPadding,0),
                 child: SafeArea(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      InkWell(
-                        onTap: (){
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: (){
 
-                        },
-                        child: Hero(
-                          tag: "234",
-                          transitionOnUserGestures: true,
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: CircleAvatar(
-                              radius: SizeConfig.screenWidth*.05,
-                              backgroundImage: const AssetImage(earthImage),
+                            },
+                            child: Hero(
+                              tag: "234",
+                              transitionOnUserGestures: true,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircleAvatar(
+                                  radius: SizeConfig.screenWidth*.035,
+                                  backgroundImage: const AssetImage(earthImage),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          Text('XplorChain', style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),),
+                        ],
                       ),
-                      Text('Xplor Chain', style: Theme.of(context).textTheme.headline4?.copyWith(fontWeight: FontWeight.bold),),
+                      Row(
+                        children: [
+                          SizedBox(
+                            height: SizeConfig.screenHeight*.05,
+                              width: SizeConfig.screenWidth*.25,
+                              child: const TextField(maxLines: 1,)),
+                           Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(myCollectionRoute), child: Text('Sign in', style: Theme.of(context).textTheme.headline6,)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(onPressed: null, child: Text('Mint', style: Theme.of(context).textTheme.headline6,)),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 )
