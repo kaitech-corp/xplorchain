@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/models/nft_details.dart';
-import 'package:travel_chain_mvp/screens/home/home.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
@@ -35,7 +34,7 @@ class MarketDesktop extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Popular Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text("Travel Experiences", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -85,7 +84,7 @@ class MarketDesktop extends StatelessWidget{
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Travel Experiences', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+              Text("Popular Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
               // Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
             ],
           ),
@@ -169,7 +168,7 @@ class NFTCollectionAvatar extends StatelessWidget{
                 child: Hero(
                   tag: index,
                   child: CircleAvatar(
-                    radius: SizeConfig.screenWidth/3,
+                    radius: SizeConfig.screenWidth/6,
                     backgroundImage: AssetImage('assets/images/${index[0]}.png',),
                   ),
                 ),

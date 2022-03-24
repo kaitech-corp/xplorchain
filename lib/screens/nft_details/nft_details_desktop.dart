@@ -21,8 +21,8 @@ class NFTDetailsDesktop extends StatefulWidget {
 
 class _NFTDetailsDesktopState extends State<NFTDetailsDesktop> {
 
-  final double _height = SizeConfig.screenHeight*.35;
-  final double _width = SizeConfig.screenWidth*.6;
+  final double _height = SizeConfig.screenHeight*.45;
+  final double _width = SizeConfig.screenWidth*.5;
   var x = randomNumber();
   var y = randomNumber();
   double animatedScale = 1.0;

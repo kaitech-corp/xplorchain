@@ -11,14 +11,14 @@ void projectInitializer() async {
   setupLocator();
   await dotenv.load(fileName: ".env");
 
-  await Firebase.initializeApp(options: const FirebaseOptions(
-      apiKey: "AIzaSyC2K_TtbMatLC-VV2mdksx_48H9GN9kInE",
-      authDomain: "coherent-window-339921.firebaseapp.com",
-      projectId: "coherent-window-339921",
-      storageBucket: "coherent-window-339921.appspot.com",
-      messagingSenderId: "1097855868527",
-      appId: "1:1097855868527:web:31cd4803bd10a343b9f79a",
-      measurementId: "G-N3V89M42VE"
+  await Firebase.initializeApp(options: FirebaseOptions(
+      apiKey: dotenv.env['apiKey'].toString(),
+      authDomain: dotenv.env['authDomain'].toString(),
+      projectId: dotenv.env['projectId'].toString(),
+      storageBucket: dotenv.env['storageBucket'].toString(),
+      messagingSenderId: dotenv.env['messagingSenderId'].toString(),
+      appId: dotenv.env['appId'].toString(),
+      measurementId: dotenv.env['measurementId'].toString()
   ));
 
   // SystemChrome.setPreferredOrientations([
