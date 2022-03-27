@@ -1,4 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:travel_chain_mvp/screens/wallet_connections/devnet_connect.dart';
 import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
@@ -16,69 +20,75 @@ class MyCollection extends StatefulWidget{
 
 class _MyCollectionState extends State<MyCollection> {
 
-  bool isPressed = false;
-  bool isGetTokensPressed = false;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-          height: SizeConfig.screenHeight,
-          width: SizeConfig.screenWidth,
-          color: canvasColor,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ElevatedButton(
-                        onPressed: (){
-                          setState(() {
-                            isPressed = !isPressed;
-                          });
-                        },
-                        child: Text("Connect",style: Theme.of(context).textTheme.headline6,)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            isGetTokensPressed = !isGetTokensPressed;
-                          });
-                      },
-                        child: Text("Get Tokens",style: Theme.of(context).textTheme.headline6,)),
-                  ),
-                ],
-              ),
-              Center(
-                child: FutureBuilder<String>(
-                  future: isPressed ? CloudFunction().connectXRPL(): null,
-                  builder: (context, response){
-                    if(response.hasData){
-                      return Text(response.data.toString());
-                    } else{
-                      return const Text("No wallet connected");
-                    }
-                  },
+      child: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          body: Center(
+            child: SizedBox(
+              height: SizeConfig.screenHeight*.5,
+              width: SizeConfig.screenWidth*.33,
+              child: Card(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15))
+                ),
+                semanticContainer: false,
+                color: Colors.black87,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text("Sign In",style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
+                    Text("Choose an available wallet provider below", style: Theme.of(context).textTheme.subtitle1,),
+                    SizedBox(height: SizeConfig.screenHeight*.01,),
+                    Center(
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        color: Colors.white30,
+                        child: TabBar(
+                          unselectedLabelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black),
+                          labelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.blueAccent),
+                          tabs: <Widget>[
+                            Tab(
+                                icon: SizedBox(
+                                  height: 24,
+                                  width: 24,
+                                  child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
+                                text:"Devnet"),
+                            Tab(
+                              icon: SizedBox(
+                                height: 24,
+                                width: 24,
+                                child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
+                              text: "XRPL",
+                            ),
+                            Tab(
+                                icon: SizedBox(
+                                  height: 24,
+                                  width: 24,
+                                  child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
+                                text:"XUMM"),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const Expanded(
+                      child: TabBarView(
+                        children: <Widget>[
+                          DevNetConnection(),
+                          Text('XRPL'),
+                          Text('XUMM'),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Center(
-                child: FutureBuilder<dynamic>(
-                  future: isGetTokensPressed ? CloudFunction().getTokens() : null,
-                  builder: (context, response){
-                    if(response.hasData){
-                      return Text(response.data.toString());
-                    } else{
-                      return const Text("No wallet connected");
-                    }
-                  },
-                ),
-              ),
-            ],
+            ),
           ),
+        ),
       ),
     );
   }

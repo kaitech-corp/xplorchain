@@ -26,4 +26,15 @@ class CloudFunction {
     });
     return results.data;
   }
+
+  ///Obtains tokens associated with user wallet credentials stored on a env file.
+  Future<dynamic> mintTokens() async {
+    final HttpsCallable callable = FirebaseFunctions.instance
+        .httpsCallable('mintTokens');
+    final results = await callable({
+      'address': dotenv.env['address1'],
+      'secret': dotenv.env['secret1']
+    });
+    return results.data;
+  }
 }
