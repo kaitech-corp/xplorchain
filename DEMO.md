@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/61811131/160267950-ee73704d-6fc3-45de-
 
 
 
-![App UI](assets/images/SS_details.PNG)
-![App UI](assets/images/SS_details.PNG)
-![App UI](assets/images/SS_details.PNG)
-![App UI](assets/images/SS_wallet_connect.PNG)
+![App UI](assets/images/SS_details.png)
+![App UI](assets/images/SS_details.png)
+![App UI](assets/images/SS_details.png)
+![App UI](assets/images/SS_wallet_connect.png)
