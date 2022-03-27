@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_chain_mvp/screens/home/home.dart';
 import 'package:travel_chain_mvp/screens/my_collection/my_collection.dart';
 import 'package:travel_chain_mvp/screens/nft_details/nft_details_desktop.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
@@ -22,6 +23,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name,
         viewToShow: const MyCollection(),
+      );
+    case homeRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: const MyHomePage(),
       );
     default:
       return MaterialPageRoute(

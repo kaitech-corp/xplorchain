@@ -20,7 +20,7 @@ class MarketDesktop extends StatelessWidget{
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Freshly Minted", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
+          child: Text("Local Artists", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -34,7 +34,7 @@ class MarketDesktop extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Travel Experiences", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text("Point of Interests", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -48,7 +48,7 @@ class MarketDesktop extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Hot Collections", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text("Hot Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,

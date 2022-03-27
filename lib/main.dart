@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
+import 'package:travel_chain_mvp/services/responsive/scroll_behavior.dart';
 
 import 'screens/home/home.dart';
 import 'services/navigation/navigation_service.dart';
@@ -26,10 +27,11 @@ class MyApp extends StatelessWidget {
       builder: (context,orientation, deviceType) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          scrollBehavior: MyCustomScrollBehavior(),
           title: 'NFKeychain',
           theme: ThemeData(
-            fontFamily: GoogleFonts.literata().fontFamily,
-            textTheme: GoogleFonts.literataTextTheme(
+            fontFamily: GoogleFonts.playfairDisplay().fontFamily,
+            textTheme: GoogleFonts.playfairDisplayTextTheme(
                 Theme.of(context).textTheme
             ),
           ),

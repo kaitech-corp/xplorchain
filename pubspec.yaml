@@ -17,7 +17,6 @@ dependencies:
 
 # Features
 
-
 # Firebase
   firebase_core: ^1.13.1
   cloud_functions: ^3.2.8

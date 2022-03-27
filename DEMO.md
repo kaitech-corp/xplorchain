@@ -1,4 +1,12 @@
-## Prototype Demo
+#Demo
 
-https://user-images.githubusercontent.com/61811131/160203137-fda3bc03-2b35-469a-8f92-8a07ba221f09.mov
 
+
+https://user-images.githubusercontent.com/61811131/160267950-ee73704d-6fc3-45de-be29-4d292783f5d5.mov
+
+
+
+
+![App UI](assets/images/SS_details.png)
+![App UI](assets/images/SS_details_expanded.png)
+![App UI](assets/images/SS_wallet_connect.png)

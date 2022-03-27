@@ -87,7 +87,7 @@ class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
                         children: [
                           InkWell(
                             onTap: (){
-
+                              navigationService.navigateTo(homeRoute);
                             },
                             child: Hero(
                               tag: "234",
