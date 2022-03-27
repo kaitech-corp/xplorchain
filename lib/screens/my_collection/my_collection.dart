@@ -7,6 +7,7 @@ import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 import '../../services/constants/constants.dart';
+import '../../widgets/app_animation_desktop.dart';
 
 
 ///Display of users NFT collection given wallet credentials.
@@ -20,6 +21,7 @@ class MyCollection extends StatefulWidget{
 
 class _MyCollectionState extends State<MyCollection> {
 
+  final ScrollController controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,66 +29,72 @@ class _MyCollectionState extends State<MyCollection> {
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
-          body: Center(
-            child: SizedBox(
-              height: SizeConfig.screenHeight*.5,
-              width: SizeConfig.screenWidth*.33,
-              child: Card(
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15))
-                ),
-                semanticContainer: false,
-                color: Colors.black87,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text("Sign In",style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
-                    Text("Choose an available wallet provider below", style: Theme.of(context).textTheme.subtitle1,),
-                    SizedBox(height: SizeConfig.screenHeight*.01,),
-                    Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        color: Colors.white30,
-                        child: TabBar(
-                          unselectedLabelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black),
-                          labelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.blueAccent),
-                          tabs: <Widget>[
-                            Tab(
-                                icon: SizedBox(
-                                  height: 24,
-                                  width: 24,
-                                  child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                text:"Devnet"),
-                            Tab(
-                              icon: SizedBox(
-                                height: 24,
-                                width: 24,
-                                child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                              text: "XRPL",
+          body: Column(
+            children: [
+              AppBarAnimationDesktop(controller: controller,),
+              const SizedBox(height: 50,),
+              Center(
+                child: SizedBox(
+                  height: SizeConfig.screenHeight*.5,
+                  width: SizeConfig.screenWidth*.33,
+                  child: Card(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15))
+                    ),
+                    semanticContainer: false,
+                    color: Colors.black87,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text("Sign In",style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
+                        Text("Choose an available wallet provider below", style: Theme.of(context).textTheme.subtitle1,),
+                        SizedBox(height: SizeConfig.screenHeight*.01,),
+                        Center(
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            color: Colors.white30,
+                            child: TabBar(
+                              unselectedLabelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black),
+                              labelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.blueAccent),
+                              tabs: <Widget>[
+                                Tab(
+                                    icon: SizedBox(
+                                      height: 24,
+                                      width: 24,
+                                      child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
+                                    text:"Devnet"),
+                                Tab(
+                                  icon: SizedBox(
+                                    height: 24,
+                                    width: 24,
+                                    child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
+                                  text: "XRPL",
+                                ),
+                                Tab(
+                                    icon: SizedBox(
+                                      height: 24,
+                                      width: 24,
+                                      child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
+                                    text:"XUMM"),
+                              ],
                             ),
-                            Tab(
-                                icon: SizedBox(
-                                  height: 24,
-                                  width: 24,
-                                  child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                text:"XUMM"),
-                          ],
+                          ),
                         ),
-                      ),
+                        const Expanded(
+                          child: TabBarView(
+                            children: <Widget>[
+                              DevNetConnection(),
+                              Text('XRPL'),
+                              Text('XUMM'),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    const Expanded(
-                      child: TabBarView(
-                        children: <Widget>[
-                          DevNetConnection(),
-                          Text('XRPL'),
-                          Text('XUMM'),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ),
       ),
