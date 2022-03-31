@@ -1,12 +1,9 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:travel_chain_mvp/screens/wallet_connections/devnet_connect.dart';
+import 'package:image_network/image_network.dart';
+import 'package:travel_chain_mvp/models/models.dart';
 import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
-import '../../services/constants/constants.dart';
 import '../../widgets/app_animation_desktop.dart';
 
 
@@ -24,101 +21,87 @@ class _MyCollectionState extends State<MyCollection> {
   final ScrollController controller = ScrollController();
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
           body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppBarAnimationDesktop(controller: controller,),
               const SizedBox(height: 50,),
-              Center(
-                child: SizedBox(
-                  height: SizeConfig.screenHeight*.5,
-                  width: SizeConfig.screenWidth*.33,
-                  child: Card(
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    semanticContainer: false,
-                    color: Colors.black87,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("Sign In",style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
-                        Text("Choose an available wallet provider below", style: Theme.of(context).textTheme.subtitle1,),
-                        SizedBox(height: SizeConfig.screenHeight*.01,),
-                        Center(
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            color: Colors.white30,
-                            child: TabBar(
-                              unselectedLabelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.black),
-                              labelStyle: Theme.of(context).textTheme.subtitle1?.copyWith(color: Colors.blueAccent),
-                              tabs: <Widget>[
-                                Tab(
-                                    icon: SizedBox(
-                                      height: 24,
-                                      width: 24,
-                                      child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                    text:"Devnet"),
-                                Tab(
-                                  icon: SizedBox(
-                                    height: 24,
-                                    width: 24,
-                                    child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                  text: "XRPL",
-                                ),
-                                Tab(
-                                    icon: SizedBox(
-                                      height: 24,
-                                      width: 24,
-                                      child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                    text:"XUMM"),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const Expanded(
-                          child: TabBarView(
-                            children: <Widget>[
-                              DevNetConnection(),
-                              Text('XRPL'),
-                              Text('XUMM'),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text("My Collection",style: Theme.of(context).textTheme.headline4,),
               ),
+              //Example Future to retrieve nft and metadata.
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: FutureBuilder(
+                  future: CloudFunction().getTokens(),
+                  builder: (BuildContext context, AsyncSnapshot<dynamic> response){
+                    if(response.hasData){
+                      print(response.data);
+                      var results = response.data['result']['account_nfts'];
+                      var data = results.map((result) => AccountNFTs.fromJSON(result)).toList();
+                      return SizedBox(
+                        height: SizeConfig.screenHeight*.5,
+                        width: double.infinity,
+                        child: ListView.builder(
+                          padding: const EdgeInsets.all(8),
+                          itemCount: data.length,
+                          itemBuilder: (context, index){
+                            AccountNFTs nft = data[index];
+                            return Card(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(15))
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                      height: SizeConfig.screenHeight*.3,
+                                      width: SizeConfig.screenHeight*.3,
+                                      child: FutureBuilder(
+                                        future: CloudFunction().convertHexToString(nft.uri.toString()),
+                                        builder: (BuildContext context, AsyncSnapshot<String> response){
+                                          if(response.hasData){
+                                            return ImageNetwork(
+                                              image: response.data.toString(),
+                                              height: SizeConfig.screenHeight*.3,
+                                              width: SizeConfig.screenHeight*.3,
+                                              fitWeb: BoxFitWeb.cover,
+                                            );
+                                          } else {
+                                            return const Text('Error Loading NFT');
+                                          }
+                                        },
+                                      )
+                                  ),
+                                  Text('Issuer: ${nft.issuer}'),
+                                  Text('TokenID: ${nft.tokenID}'),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                      } else {
+                      return const Text("Error retrieving data.");
+                    }
+                  }),
+              )
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class NFTCollection extends StatelessWidget{
-
-  final int index;
-
-  const NFTCollection({Key? key, required this.index}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 175,
-      width: 175,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.0),
-        color: canvasColor,
-      ),
-      // color: canvasColor,
-      child: Image.asset('assets/images/$index.png',fit: BoxFit.fill,),
     );
   }
 }

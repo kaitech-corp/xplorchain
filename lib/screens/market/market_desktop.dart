@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/models/nft_details.dart';
+import 'package:travel_chain_mvp/models/models.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';

@@ -48,6 +48,12 @@ class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
   }
 
   @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ClipPath(
         clipper: ArcShape(x: 0, y: _arcHeight),
@@ -112,7 +118,7 @@ class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
                               child: const TextField(maxLines: 1,)),
                            Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(myCollectionRoute), child: Text('Sign in', style: Theme.of(context).textTheme.headline6,)),
+                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(loginRoute), child: Text('Account', style: Theme.of(context).textTheme.headline6,)),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
