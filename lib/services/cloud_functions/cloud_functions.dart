@@ -37,4 +37,15 @@ class CloudFunction {
     });
     return results.data;
   }
+
+  ///Convert URI hex back to a string to display NFT link/metadata.
+  Future<String> convertHexToString(String hex) async {
+    final HttpsCallable callable = FirebaseFunctions.instance
+        .httpsCallable('convertHexToString');
+    final results = await callable({
+      'hex': hex,
+    });
+    return results.data;
+  }
 }
+

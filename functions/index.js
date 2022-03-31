@@ -24,7 +24,7 @@ exports.connectXRPL = functions.https.onCall((data, context) =>{
 });
 
 // Obtains tokens associated with user wallet credentials provided.
-exports.getTokens = functions.https.onCall((data, context) =>{
+exports.getTokens = functions.https.onCall(async (data, context) =>{
   if (!context.auth) {
     // throw new functions.https.HttpsError(
     //   'unauthenticated',
@@ -33,9 +33,9 @@ exports.getTokens = functions.https.onCall((data, context) =>{
   }
   const wallet = xrpl.Wallet.fromSeed(data.secret);
   const client = new xrpl.Client("wss://xls20-sandbox.rippletest.net:51233");
-  client.connect();
+  await client.connect();
   console.log("Connected to Sandbox");
-  const nfts = client.request({
+  const nfts = await client.request({
     method: "account_nfts",
     account: wallet.classicAddress,
   });
@@ -44,6 +44,9 @@ exports.getTokens = functions.https.onCall((data, context) =>{
   return nfts;
 });
 
+exports.convertHexToString = functions.https.onCall(async (data, context) =>{
+  return xrpl.convertHexToString(data.hex);
+});
 
 // Functions to mint burn, create buy and sell orders will follow here.
 
