@@ -9,11 +9,18 @@ import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
+import '../../screens/login/login.dart';
+
 
 ///Navigation routes
 Route<dynamic> generateRoute(RouteSettings settings) {
   final dynamic args = settings.arguments;
   switch (settings.name) {
+    case loginRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: const Login(),
+      );
     case nftDetailsDesktopRoute:
       return _getPageRoute(
         routeName: settings.name,
