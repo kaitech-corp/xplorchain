@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl_browser.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
 import 'package:travel_chain_mvp/services/responsive/scroll_behavior.dart';
@@ -12,7 +13,8 @@ import 'services/project_initializer/project_initializer.dart';
 import 'services/responsive/responsive_wrapper.dart';
 
 void main() async {
-  ///Initialize get it locator.
+  ///Initialize get it locator and find current locale.
+  findSystemLocale().then((value) => print(value.toString()));
   projectInitializer();
   
   runApp(const MyApp());
