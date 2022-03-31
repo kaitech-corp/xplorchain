@@ -42,6 +42,8 @@ dependencies:
 # Other
   nil: ^1.1.1
   readmore: ^2.1.0
+  intl: ^0.17.0
+  image_network: ^2.4.1+1
 
 
 
