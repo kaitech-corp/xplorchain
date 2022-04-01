@@ -4,12 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/screens/home/home.dart';
 import 'package:travel_chain_mvp/screens/my_collection/my_collection.dart';
-import 'package:travel_chain_mvp/screens/nft_details/nft_details_desktop.dart';
+import 'package:travel_chain_mvp/screens/nft_details/nft_details.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 import '../../screens/login/login.dart';
+import '../../screens/mint/mint.dart';
 
 
 ///Navigation routes
@@ -21,10 +22,15 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         routeName: settings.name,
         viewToShow: const Login(),
       );
-    case nftDetailsDesktopRoute:
+    case nftDetailsRoute:
       return _getPageRoute(
         routeName: settings.name,
-        viewToShow: NFTDetailsDesktop(model: args,),
+        viewToShow: NFTDetails(model: args,),
+      );
+    case mintRoute:
+      return _getPageRoute(
+        routeName: settings.name,
+        viewToShow: const Mint(),
       );
     case myCollectionRoute:
       return _getPageRoute(
