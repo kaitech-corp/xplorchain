@@ -34,3 +34,12 @@ const animationDuration2 = Duration(milliseconds: 1000);
 const version = '0.1';
 
 var appBarDefaultPadding = SizeConfig.screenWidth*.1;
+
+LinearGradient gradient = const LinearGradient(
+  colors: <Color>[
+    Colors.redAccent,
+    Colors.yellowAccent,
+    Colors.blueAccent,
+    Colors.green
+  ],
+);

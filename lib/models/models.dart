@@ -1,3 +1,4 @@
+///  Model NFT details
 class NFTDetailsModel {
   final String index;
   NFTDetailsModel({required this.index});
@@ -16,6 +17,7 @@ class XRPLResponseData {
     type = jsonMap["type"];
 }
 
+/// Model for xrpl transaction data
 class XRPLTransaction {
   String? account;
   List<AccountNFTs>? accountNFTs;
@@ -31,6 +33,7 @@ class XRPLTransaction {
 
 }
 
+/// Model for accountNFTs data from transaction
 class AccountNFTs {
   int? flags;
   String? issuer;
