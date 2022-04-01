@@ -3,6 +3,7 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 
 const xrpl = require("xrpl");
+const {XummSdk} = require("xumm-sdk");
 
 // Demonstrates connecting to xrpl and user wallet then disconnecting
 exports.connectXRPL = functions.https.onCall((data, context) =>{
@@ -143,4 +144,35 @@ exports.burnToken = functions.https.onCall((data, context) =>{
   client.disconnect();
 
   return results;
+});
+
+// XUMM Functions
+// Test function: ping
+exports.pingXUMM = functions.https.onCall(async (data, context) =>{
+  const xumm = new XummSdk(data.key, data.secret);
+  const appInfo = await xumm.ping();
+  console.log(appInfo.application.name);
+
+  return appInfo;
+});
+
+// Payment Request
+exports.paymentRequest = functions.https.onCall(async (data, context) =>{
+  const xumm = new XummSdk(data.key, data.secret);
+  const request = {
+    "TransactionType": "Payment",
+    "Destination": data.destination,
+    "Amount": data.amount,
+    "Memos": [
+      {
+        "Memo": {
+          "MemoData": xrpl.convertStringToHex(data.memo),
+        },
+      },
+    ],
+  };
+  const payload = await xumm.payload.create(request, true);
+  console.log(payload);
+
+  return payload;
 });
