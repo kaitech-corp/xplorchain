@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/screens/market/market_desktop.dart';
+import 'package:travel_chain_mvp/screens/market/market_web.dart';
 
 import '../my_collection/my_collection.dart';
 
@@ -39,7 +39,7 @@ class SliderMenu extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: MarketDesktop(),
+                child: MarketWeb(),
               )),
             );
           },

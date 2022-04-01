@@ -8,10 +8,10 @@ import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 import '../../services/constants/constants.dart';
 
+/// Market screen. Web version.
+class MarketWeb extends StatelessWidget{
 
-class MarketDesktop extends StatelessWidget{
-  const MarketDesktop({Key? key}) : super(key: key);
-
+  const MarketWeb({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -114,6 +114,7 @@ class MarketDesktop extends StatelessWidget{
   }
 }
 
+/// Demo of displaying nft collections.
 class NFTCollection extends StatelessWidget{
 
   final String index;
@@ -124,7 +125,7 @@ class NFTCollection extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigationService.navigateTo(nftDetailsDesktopRoute, arguments: NFTDetailsModel(index: index));
+        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
       },
       child: Card(
         shape: const RoundedRectangleBorder(
@@ -147,6 +148,7 @@ class NFTCollection extends StatelessWidget{
   }
 }
 
+/// Demo of displaying nft collections. Circle Avatar view.
 class NFTCollectionAvatar extends StatelessWidget{
 
   final String index;
@@ -157,7 +159,7 @@ class NFTCollectionAvatar extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigationService.navigateTo(nftDetailsDesktopRoute, arguments: NFTDetailsModel(index: index));
+        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -1,40 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travel_chain_mvp/screens/wallet_connections/devnet_connect.dart';
+import 'package:travel_chain_mvp/screens/wallet_connections/xumm_connect.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 import '../../services/constants/constants.dart';
-import '../../widgets/app_animation_desktop.dart';
+import '../../widgets/app_bar_web.dart';
 
 
 ///Display of users NFT collection given wallet credentials.
 ///Current credentials are generated using DevNet credentials stored on a env file.
-class Login extends StatefulWidget{
+class Login extends StatelessWidget{
   const Login({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-
-  final ScrollController controller = ScrollController();
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return SafeArea(
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
           body: Column(
             children: [
-              AppBarAnimationDesktop(controller: controller,),
+              const AppBarWeb(),
               const SizedBox(height: 50,),
               Center(
                 child: SizedBox(
@@ -88,7 +76,7 @@ class _LoginState extends State<Login> {
                             children: <Widget>[
                               DevNetConnection(),
                               Text('XRPL'),
-                              Text('XUMM'),
+                              XummConnection(),
                             ],
                           ),
                         ),

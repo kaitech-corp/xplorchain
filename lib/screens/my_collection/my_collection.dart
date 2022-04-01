@@ -4,7 +4,7 @@ import 'package:travel_chain_mvp/models/models.dart';
 import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
-import '../../widgets/app_animation_desktop.dart';
+import '../../widgets/app_bar_animation_web.dart';
 
 
 ///Display of users NFT collection given wallet credentials.
@@ -35,26 +35,25 @@ class _MyCollectionState extends State<MyCollection> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppBarAnimationDesktop(controller: controller,),
+              AppBarAnimationWeb(controller: controller,),
               const SizedBox(height: 50,),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text("My Collection",style: Theme.of(context).textTheme.headline4,),
               ),
-              //Example Future to retrieve nft and metadata.
+              ///Example Future to retrieve nft and metadata. Will convert to bloc pattern style.
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: FutureBuilder(
-                  future: CloudFunction().getTokens(),
-                  builder: (BuildContext context, AsyncSnapshot<dynamic> response){
-                    if(response.hasData){
-                      print(response.data);
-                      var results = response.data['result']['account_nfts'];
-                      var data = results.map((result) => AccountNFTs.fromJSON(result)).toList();
-                      return SizedBox(
-                        height: SizeConfig.screenHeight*.5,
-                        width: double.infinity,
-                        child: ListView.builder(
+                child: SizedBox(
+                  height: SizeConfig.screenHeight*.5,
+                  width: double.infinity,
+                  child: FutureBuilder(
+                    future: CloudFunction().getTokens(),
+                    builder: (BuildContext context, AsyncSnapshot<dynamic> response){
+                      if(response.hasData){
+                        var results = response.data['result']['account_nfts'];
+                        var data = results.map((result) => AccountNFTs.fromJSON(result)).toList();
+                        return ListView.builder(
                           padding: const EdgeInsets.all(8),
                           itemCount: data.length,
                           itemBuilder: (context, index){
@@ -91,12 +90,12 @@ class _MyCollectionState extends State<MyCollection> {
                               ),
                             );
                           },
-                        ),
-                      );
-                      } else {
-                      return const Text("Error retrieving data.");
-                    }
-                  }),
+                        );
+                        } else {
+                        return const Text("Error retrieving data.");
+                      }
+                    }),
+                ),
               )
             ],
           ),

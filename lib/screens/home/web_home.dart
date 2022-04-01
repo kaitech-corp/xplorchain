@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/screens/market/market_desktop.dart';
+import 'package:travel_chain_mvp/screens/market/market_web.dart';
 
-///Desktop view
-class DesktopScreen extends StatelessWidget {
+///Web view
+class WebHome extends StatelessWidget {
 
   final ScrollController controller;
 
-  const DesktopScreen({
+  const WebHome({
     Key? key, required this.controller,
   }) : super(key: key);
 
@@ -17,7 +17,7 @@ class DesktopScreen extends StatelessWidget {
           controller: controller,
           child: const Padding(
             padding: EdgeInsets.all(16.0),
-            child: MarketDesktop(),
+            child: MarketWeb(),
           )),
     );
   }

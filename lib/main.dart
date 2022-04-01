@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           scrollBehavior: MyCustomScrollBehavior(),
-          title: 'NFKeychain',
+          title: 'Xplorchain',
           theme: ThemeData(
             fontFamily: GoogleFonts.playfairDisplay().fontFamily,
             textTheme: GoogleFonts.playfairDisplayTextTheme(

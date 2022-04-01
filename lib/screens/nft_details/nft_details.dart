@@ -7,19 +7,20 @@ import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/constants/functions.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
-import '../market/market_desktop.dart';
+import '../market/market_web.dart';
 
-class NFTDetailsDesktop extends StatefulWidget {
+/// Details page for NFTs
+class NFTDetails extends StatefulWidget {
 
   final NFTDetailsModel model;
 
-  const NFTDetailsDesktop({Key? key, required this.model}) : super(key: key);
+  const NFTDetails({Key? key, required this.model}) : super(key: key);
 
   @override
-  State<NFTDetailsDesktop> createState() => _NFTDetailsDesktopState();
+  State<NFTDetails> createState() => _NFTDetailsState();
 }
 
-class _NFTDetailsDesktopState extends State<NFTDetailsDesktop> {
+class _NFTDetailsState extends State<NFTDetails> {
 
   final double _height = SizeConfig.screenHeight*.45;
   final double _width = SizeConfig.screenWidth*.5;
