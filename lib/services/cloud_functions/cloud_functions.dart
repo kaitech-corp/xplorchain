@@ -5,7 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 ///These functions retrieve the data.
 class CloudFunction {
 
-///Demonstrates connecting to xrpl and user wallet then disconnecting
+/// Demonstrates connecting to xrpl and user wallet then disconnecting
   Future<String> connectXRPL() async {
     final HttpsCallable callable = FirebaseFunctions.instance
         .httpsCallable('connectXRPL');
@@ -16,7 +16,7 @@ class CloudFunction {
     return results.data;
   }
 
-  ///Obtains tokens associated with user wallet credentials stored on a env file.
+/// Obtains tokens associated with user wallet credentials stored on a env file.
   Future<dynamic> getTokens() async {
     final HttpsCallable callable = FirebaseFunctions.instance
         .httpsCallable('getTokens');
@@ -27,7 +27,7 @@ class CloudFunction {
     return results.data;
   }
 
-  ///Obtains tokens associated with user wallet credentials stored on a env file.
+/// Obtains tokens associated with user wallet credentials stored on a env file.
   Future<dynamic> mintTokens() async {
     final HttpsCallable callable = FirebaseFunctions.instance
         .httpsCallable('mintTokens');
@@ -38,12 +38,24 @@ class CloudFunction {
     return results.data;
   }
 
-  ///Convert URI hex back to a string to display NFT link/metadata.
+/// Convert URI hex back to a string to display NFT link/metadata.
   Future<String> convertHexToString(String hex) async {
     final HttpsCallable callable = FirebaseFunctions.instance
         .httpsCallable('convertHexToString');
     final results = await callable({
       'hex': hex,
+    });
+    return results.data;
+  }
+
+/// XUMM functions
+/// Test function: ping
+  Future<dynamic> pingXUMM() async {
+    final HttpsCallable callable = FirebaseFunctions.instance
+        .httpsCallable('pingXUMM');
+    final results = await callable({
+      'key': dotenv.env['XummKey'],
+      'secret': dotenv.env['XummSecret'],
     });
     return results.data;
   }
