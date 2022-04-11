@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 const canvasColor = Color(0xFFFAFAFA);
-var locations = ['Palm Springs, CA','Seoul, Korea', 'Amsterdam, Netherlands','Chicago, Illinois','Paris, France'];
-var nftCollections = ['Outdoorsy', 'The Mandarin', 'EuroWalkers', 'Sailrz', 'Asgradians'];
+var locations = ['Palm Springs, CA','Seoul, Korea', 'Amsterdam, Netherlands','Chicago, Illinois','Paris, France','Cairo, Egypt'];
+var nftCollections = ['Outdoorsy', 'The Mandarin', 'EuroWalkers', 'Sailrz', 'Asgradians','Nightwalkers'];
 var nftCount = [5,15,8,6];
 double defaultPadding = SizeConfig.screenWidth/8;
 
