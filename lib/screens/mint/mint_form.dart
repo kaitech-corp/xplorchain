@@ -97,6 +97,29 @@ class _MintFormState extends State<MintForm> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
+                      onChanged: (val){
+
+                      },
+                      enableInteractiveSelection: true,
+                      // maxLines: 2,
+                      decoration: const InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white30, width: 1.0),
+                        ),
+                        labelText: "Quantity",
+                      ),
+                      // ignore: missing_return
+                      validator: (value) {
+                        //TODO add validator functions
+                        if ((value?.isNotEmpty ?? false)){
+                          return 'Please enter a quantity.';
+                        }
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
                       enableInteractiveSelection: true,
                       textCapitalization: TextCapitalization.sentences,
                       cursorColor: Colors.grey,

@@ -77,6 +77,8 @@ exports.mintToken = functions.https.onCall((data, context) =>{
     //   'Unable to perform action.'
     // );
   }
+
+  const quantity = data.quantity;
   // Connect to wallet
   const wallet = xrpl.Wallet.fromSeed(data.secret);
   // verify address
@@ -85,7 +87,8 @@ exports.mintToken = functions.https.onCall((data, context) =>{
   client.connect();
   console.log("Connected to Sandbox");
 
-  // Handle transaction
+//if(quantity)
+//for (let count = 0; count < quantity; count++) {  // Handle transaction
   const transaction = {
     "TransactionType": "NFTokenMint",
     "Account": wallet.classicAddress,
@@ -95,7 +98,7 @@ exports.mintToken = functions.https.onCall((data, context) =>{
   };
   // Submit signed transaction
   const tx = client.submitAndWait(transaction, {wallet});
-
+//}
   // Request nfts
   const nfts = client.request({
     method: "accounts_nfts",

@@ -19,6 +19,7 @@ class MyCollection extends StatefulWidget{
 class _MyCollectionState extends State<MyCollection> {
 
   final ScrollController controller = ScrollController();
+  bool showMetaData = false;
 
   @override
   void dispose() {
@@ -72,11 +73,18 @@ class _MyCollectionState extends State<MyCollection> {
                                         future: CloudFunction().convertHexToString(nft.uri.toString()),
                                         builder: (BuildContext context, AsyncSnapshot<String> response){
                                           if(response.hasData){
-                                            return ImageNetwork(
-                                              image: response.data.toString(),
-                                              height: SizeConfig.screenHeight*.3,
-                                              width: SizeConfig.screenHeight*.3,
-                                              fitWeb: BoxFitWeb.cover,
+                                            return GestureDetector(
+                                              onTap: (){
+                                                setState(() {
+                                                  showMetaData = !showMetaData;
+                                                });
+                                              },
+                                              child: ImageNetwork(
+                                                image: response.data.toString(),
+                                                height: SizeConfig.screenHeight*.3,
+                                                width: SizeConfig.screenHeight*.3,
+                                                fitWeb: BoxFitWeb.cover,
+                                              ),
                                             );
                                           } else {
                                             return const Text('Error Loading NFT');
@@ -86,6 +94,13 @@ class _MyCollectionState extends State<MyCollection> {
                                   ),
                                   Text('Issuer: ${nft.issuer}'),
                                   Text('TokenID: ${nft.tokenID}'),
+                                  Visibility(
+                                    visible: showMetaData,
+                                    child: Column(
+                                      children: const [
+                                       // Show Metadata
+                                      ],
+                                    ))
                                 ],
                               ),
                             );
