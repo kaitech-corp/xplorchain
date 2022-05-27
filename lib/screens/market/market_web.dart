@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:travel_chain_mvp/models/models.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
@@ -21,7 +22,7 @@ class MarketWeb extends StatelessWidget{
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Local Artists", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
+          child: Text(Intl.message("Local Artists"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -31,7 +32,7 @@ class MarketWeb extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Point of Interests", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text(Intl.message("Point of Interests"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -40,7 +41,7 @@ class MarketWeb extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Hot Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text(Intl.message("Hot Destinations"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -54,7 +55,7 @@ class MarketWeb extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('Nearby Gems', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text(Intl.message('Nearby Gems'), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         Center(
           child: SizedBox(
@@ -76,7 +77,7 @@ class MarketWeb extends StatelessWidget{
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Popular Destinations", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+              Text(Intl.message("Popular Destinations"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
               // Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
             ],
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:travel_chain_mvp/screens/wallet_connections/devnet_connect.dart';
 import 'package:travel_chain_mvp/screens/wallet_connections/xumm_connect.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
@@ -8,8 +9,8 @@ import '../../services/constants/constants.dart';
 import '../../widgets/app_bar_web.dart';
 
 
-///Display of users NFT collection given wallet credentials.
-///Current credentials are generated using DevNet credentials stored on a env file.
+/// Display of users NFT collection given wallet credentials.
+/// Current credentials are generated using DevNet credentials stored on a env file.
 class Login extends StatelessWidget{
   const Login({Key? key}) : super(key: key);
 
@@ -37,8 +38,8 @@ class Login extends StatelessWidget{
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Sign In",style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
-                        Text("Choose an available wallet provider below", style: Theme.of(context).textTheme.subtitle1,),
+                        Text(Intl.message("Sign In", name: 'signIn',desc: 'sign in'),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
+                        Text(Intl.message("Choose an available wallet provider below",name: 'chooseWallet'), style: Theme.of(context).textTheme.subtitle1,),
                         SizedBox(height: SizeConfig.screenHeight*.01,),
                         Center(
                           child: Container(

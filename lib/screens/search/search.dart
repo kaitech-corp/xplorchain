@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 
 ///NFT Search Page
@@ -10,10 +11,10 @@ class Search extends StatelessWidget{
     return SafeArea(
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children:const [
+          children: [
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("Search Page")
+              padding: const EdgeInsets.all(8.0),
+              child: Text(Intl.message('Search Page'))
             ),
           ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 import '../../services/constants/constants.dart';
 
@@ -36,7 +37,7 @@ class MenuDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.people),
-                  title: Text('Profile',
+                  title: Text(Intl.message('Profile'),
                       style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                     // navigationService.navigateTo(UsersRoute);
@@ -47,14 +48,14 @@ class MenuDrawer extends StatelessWidget {
                     Icons.search,
                   ),
                   title:
-                  Text('Search', style: Theme.of(context).textTheme.subtitle1),
+                  Text(Intl.message('Search'), style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                     // navigationService.navigateTo(DMChatListPageRoute);
                   },
                 ),
                 ListTile(
                   leading: const Icon(Icons.info),
-                  title: Text('Help & Feedback',
+                  title: Text(Intl.message('Help & Feedback'),
                       style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                     // navigationService.navigateTo(HelpPageRoute);
@@ -62,7 +63,7 @@ class MenuDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.settings),
-                  title: Text('Settings',
+                  title: Text(Intl.message('Settings'),
                       style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                     // navigationService.navigateTo(SettingsRoute);
@@ -71,7 +72,7 @@ class MenuDrawer extends StatelessWidget {
                 ListTile(
                   leading: const Icon(Icons.exit_to_app),
                   title:
-                  Text('Logout', style: Theme.of(context).textTheme.subtitle1),
+                  Text(Intl.message('Logout'), style: Theme.of(context).textTheme.subtitle1),
                   onTap: () {
                 
                   },

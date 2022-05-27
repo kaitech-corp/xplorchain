@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/screens/market/market_web.dart';
 
-///Web view
+/// Web view
 class WebHome extends StatelessWidget {
 
   final ScrollController controller;

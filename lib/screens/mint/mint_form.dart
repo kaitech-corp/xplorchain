@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../models/drop_file_model.dart';
 import '../../services/drop_zone/drop_file_widget.dart';
@@ -113,7 +114,7 @@ class _MintFormState extends State<MintForm> {
                       validator: (value) {
                         //TODO add validator functions
                         if ((value?.isNotEmpty ?? false)){
-                          return 'Please enter a valid link with including https.';
+                          return Intl.message('Please enter a valid link with including https.');
                         }
                       },
                     ),
@@ -126,17 +127,17 @@ class _MintFormState extends State<MintForm> {
                       },
                       enableInteractiveSelection: true,
                       // maxLines: 2,
-                      decoration: const InputDecoration(
-                        enabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white30, width: 1.0),
                         ),
-                        labelText: "Quantity",
+                        labelText:  Intl.message('Quantity'),
                       ),
                       // ignore: missing_return
                       validator: (value) {
                         //TODO add validator functions
                         if ((value?.isNotEmpty ?? false)){
-                          return 'Please enter a quantity.';
+                          return Intl.message('Please enter a quantity.');
                         }
                       },
                     ),
@@ -153,7 +154,7 @@ class _MintFormState extends State<MintForm> {
                             borderSide: BorderSide(color: Colors.white30, width: 1.0),
                           ),
                           border: const OutlineInputBorder(),
-                          hintText: 'Provide a detailed description.',
+                          hintText: Intl.message('Provide a detailed description.'),
                           hintStyle: Theme.of(context).textTheme.subtitle1
                       ),
                       style: Theme.of(context).textTheme.subtitle1,

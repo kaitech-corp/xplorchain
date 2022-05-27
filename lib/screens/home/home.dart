@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/screens/menu/menu_drawer.dart';
 import 'package:travel_chain_mvp/widgets/app_bar_animation_web.dart';
