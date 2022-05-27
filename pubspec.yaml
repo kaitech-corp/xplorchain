@@ -49,12 +49,6 @@ dependencies:
   image_network: ^2.4.1+1
 
 
-
-
-
-
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

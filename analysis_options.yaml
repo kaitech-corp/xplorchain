@@ -22,8 +22,19 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+     avoid_print: true  # Uncomment to disable the `avoid_print` rule
+     prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+     avoid_empty_else: true # Avoid empty else statements.
+     avoid_returning_null_for_future: true # Avoid returning null for Future.
+     unnecessary_statements: true # Avoid using unnecessary statements.
+     always_declare_return_types: true # Declare method return types.
+     always_put_required_named_parameters_first: true # Put required named parameters first.
+     always_require_non_null_named_parameters: true # Specify @required on named parameters without defaults.
+     annotate_overrides: true # Annotate overridden members.
+     avoid_returning_null_for_void: true # Avoid returning null for void.
+     camel_case_types: true # Name types using UpperCamelCase.
+     constant_identifier_names: true # Prefer using lowerCamelCase for constant names.
+     empty_catches: true # Avoid empty catch blocks.
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
