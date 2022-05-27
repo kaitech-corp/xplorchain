@@ -11,6 +11,7 @@ void projectInitializer() async {
   setupLocator();
   await dotenv.load(fileName: ".env");
 
+
   await Firebase.initializeApp(options: FirebaseOptions(
       apiKey: dotenv.env['apiKey'].toString(),
       authDomain: dotenv.env['authDomain'].toString(),
@@ -21,11 +22,8 @@ void projectInitializer() async {
       measurementId: dotenv.env['measurementId'].toString()
   ));
 
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown
-  // ]);
 
+///Future reference. Uncomment when required
   // Pass all uncaught errors from the framework to Crashlytics.
   // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   // FirebasePerformance.instance.setPerformanceCollectionEnabled(true);

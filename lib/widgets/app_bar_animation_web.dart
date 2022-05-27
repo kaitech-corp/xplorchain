@@ -6,20 +6,20 @@ import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 ///App Bar animation
-class AppBarAnimationDesktop extends StatefulWidget {
+class AppBarAnimationWeb extends StatefulWidget {
 
   final ScrollController controller;
 
-  const AppBarAnimationDesktop({
+  const AppBarAnimationWeb({
     Key? key,
     required this.controller,
   }) : super(key: key);
 
   @override
-  _AppBarAnimationDesktopState createState() => _AppBarAnimationDesktopState();
+  _AppBarAnimationWebState createState() => _AppBarAnimationWebState();
 }
 
-class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
+class _AppBarAnimationWebState extends State<AppBarAnimationWeb> {
 
   double _height = SizeConfig.screenHeight*.18;
   double _arcHeight = 100;
@@ -45,6 +45,12 @@ class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
         });
       }
     }
+  }
+
+  @override
+  void dispose() {
+    widget.controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -112,11 +118,11 @@ class _AppBarAnimationDesktopState extends State<AppBarAnimationDesktop> {
                               child: const TextField(maxLines: 1,)),
                            Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(myCollectionRoute), child: Text('Sign in', style: Theme.of(context).textTheme.headline6,)),
+                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(loginRoute), child: Text('Account', style: Theme.of(context).textTheme.headline6,)),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(onPressed: null, child: Text('Mint', style: Theme.of(context).textTheme.headline6,)),
+                            child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(mintRoute), child: Text('Mint', style: Theme.of(context).textTheme.headline6,)),
                           ),
                         ],
                       )

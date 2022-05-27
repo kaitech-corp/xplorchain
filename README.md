@@ -1,4 +1,4 @@
-# Xplorchain MVP (Previously Travel-Chain)
+# Xplorchain
 
 Xplorchain is a NFT marketplace for travel-based, digital art used as digital keychains. This is a MVP.
 
@@ -10,15 +10,17 @@ Xplorchain is a NFT marketplace for travel-based, digital art used as digital ke
 - Vote on top rated NFT's for location/POI based Tier levels (i.e. Common, Rare, Legendary).
 - Earn "Crew" tokens by traveling and syncing your location with Travel Crew. Tokens can be traded for
 various rewards including Common tiered NTF's.
+- This platform will also allow entities to sell NFT's as ticket-like items that grant special privileges.
 
 
-## Under The Hood
+## Under The Hood 
 (Subject to change)
 
 - Flutter/Dart
 - Firebase
 - Javascript
-- Python 
+- Python
+- Node.js
 - Google Cloud Platform
 
 ## Crypto Platforms

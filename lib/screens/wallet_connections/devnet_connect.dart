@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_chain_mvp/services/locator.dart';
+import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 
 import '../../services/cloud_functions/cloud_functions.dart';
 
@@ -85,7 +87,17 @@ class _DevNetConnectionState extends State<DevNetConnection> {
             future: isPressed ? CloudFunction().connectXRPL(): null,
             builder: (context, response){
               if(response.hasData){
-                return Text(response.data.toString());
+                return Column(
+                  children: [
+                    Text(response.data.toString()),
+                    ElevatedButton(
+                      onPressed: (){
+                        navigationService.navigateTo(myCollectionRoute);
+                      },
+                      child: Text("My Collection",style: Theme.of(context).textTheme.headline6,),
+                    )
+                  ],
+                );
               } else{
                 return const Text("No wallet connected");
               }

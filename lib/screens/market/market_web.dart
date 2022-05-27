@@ -1,17 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/models/nft_details.dart';
+import 'package:travel_chain_mvp/models/models.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import 'package:travel_chain_mvp/widgets/sliver_grid_view.dart';
 
 import '../../services/constants/constants.dart';
 
+/// Market screen. Web version.
+class MarketWeb extends StatelessWidget{
 
-class MarketDesktop extends StatelessWidget{
-  const MarketDesktop({Key? key}) : super(key: key);
-
+  const MarketWeb({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,8 @@ class MarketDesktop extends StatelessWidget{
         SizedBox(
           height: SizeConfig.screenHeight/3,
           width: double.infinity,
-          child: ListView.builder(
-              itemCount: 5,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index){
-                return NFTCollection(index: '$index 001');
-              }),
+          child: const SliverGridView(tag: ' 001',plus: 0,)
+
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -39,12 +36,7 @@ class MarketDesktop extends StatelessWidget{
         SizedBox(
           height: SizeConfig.screenHeight/3,
           width: double.infinity,
-          child: ListView.builder(
-              itemCount: 5,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index){
-                return NFTCollection(index: '$index 002');
-              }),
+          child: const SliverGridView(tag: ' 002',plus: 3,)
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -54,7 +46,7 @@ class MarketDesktop extends StatelessWidget{
           height: SizeConfig.screenHeight/3,
           width: SizeConfig.screenWidth,
           child: ListView.builder(
-              itemCount: 5,
+              itemCount: 3,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
                 return NFTCollectionAvatar(index: '$index 004');
@@ -114,6 +106,7 @@ class MarketDesktop extends StatelessWidget{
   }
 }
 
+/// Demo of displaying nft collections.
 class NFTCollection extends StatelessWidget{
 
   final String index;
@@ -124,7 +117,7 @@ class NFTCollection extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigationService.navigateTo(nftDetailsDesktopRoute, arguments: NFTDetailsModel(index: index));
+        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
       },
       child: Card(
         shape: const RoundedRectangleBorder(
@@ -147,6 +140,7 @@ class NFTCollection extends StatelessWidget{
   }
 }
 
+/// Demo of displaying nft collections. Circle Avatar view.
 class NFTCollectionAvatar extends StatelessWidget{
 
   final String index;
@@ -157,7 +151,7 @@ class NFTCollectionAvatar extends StatelessWidget{
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigationService.navigateTo(nftDetailsDesktopRoute, arguments: NFTDetailsModel(index: index));
+        navigationService.navigateTo(nftDetailsRoute, arguments: NFTDetailsModel(index: index));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -168,7 +162,7 @@ class NFTCollectionAvatar extends StatelessWidget{
                 child: Hero(
                   tag: index,
                   child: CircleAvatar(
-                    radius: SizeConfig.screenWidth/6,
+                    radius: SizeConfig.screenWidth/8,
                     backgroundImage: AssetImage('assets/images/${index[0]}.png',),
                   ),
                 ),
