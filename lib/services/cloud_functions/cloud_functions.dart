@@ -48,7 +48,7 @@ class CloudFunction {
     return results.data;
   }
 
-/// XUMM functions
+/// ***XUMM functions***
 /// Test function: ping
   Future<dynamic> pingXUMM() async {
     final HttpsCallable callable = FirebaseFunctions.instance
