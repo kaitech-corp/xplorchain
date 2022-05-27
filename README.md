@@ -12,7 +12,6 @@ Xplorchain is a NFT marketplace for travel-based, digital art used as digital ke
 various rewards including Common tiered NTF's.
 - This platform will also allow entities to sell NFT's as ticket-like items that grant special privileges.
 
-
 ## Under The Hood 
 (Subject to change)
 
