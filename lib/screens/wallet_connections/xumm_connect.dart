@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/services/locator.dart';
 import 'package:travel_chain_mvp/services/navigation/route_names.dart';
@@ -31,7 +30,7 @@ class _XummConnectionState extends State<XummConnection> {
                   isPressed = !isPressed;
                 });
               },
-              child: Text("Connect",style: Theme.of(context).textTheme.headline6,)),
+              child: Text('Connect',style: Theme.of(context).textTheme.headline6,)),
         ),
         Center(
           child: FutureBuilder<dynamic>(
@@ -45,12 +44,12 @@ class _XummConnectionState extends State<XummConnection> {
                       onPressed: (){
                         navigationService.navigateTo(myCollectionRoute);
                       },
-                      child: Text("My Collection",style: Theme.of(context).textTheme.headline6,),
+                      child: Text('My Collection',style: Theme.of(context).textTheme.headline6,),
                     )
                   ],
                 );
               } else{
-                return const Text("No wallet connected");
+                return const Text('No wallet connected');
               }
             },
           ),

@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:travel_chain_mvp/models/models.dart';
@@ -22,7 +21,7 @@ class MarketWeb extends StatelessWidget{
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(Intl.message("Local Artists"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
+          child: Text(Intl.message('Local Artists'), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold)),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -32,7 +31,7 @@ class MarketWeb extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(Intl.message("Point of Interests"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text(Intl.message('Point of Interests'), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -41,7 +40,7 @@ class MarketWeb extends StatelessWidget{
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(Intl.message("Hot Destinations"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+          child: Text(Intl.message('Hot Destinations'), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
         ),
         SizedBox(
           height: SizeConfig.screenHeight/3,
@@ -77,7 +76,7 @@ class MarketWeb extends StatelessWidget{
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(Intl.message("Popular Destinations"), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+              Text(Intl.message('Popular Destinations'), style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
               // Text('# of NFKeychains', style: Theme.of(context).textTheme.subtitle2),
             ],
           ),
@@ -112,7 +111,7 @@ class NFTCollection extends StatelessWidget{
 
   final String index;
 
-  const NFTCollection({Key? key, required this.index}) : super(key: key);
+  const NFTCollection({required this.index, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +145,7 @@ class NFTCollectionAvatar extends StatelessWidget{
 
   final String index;
 
-  const NFTCollectionAvatar({Key? key, required this.index}) : super(key: key);
+  const NFTCollectionAvatar({required this.index, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ class Settings extends StatelessWidget{
           children: const [
             Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text("Settings Page")
+              child: Text('Settings Page')
               ),
           ],
         ),

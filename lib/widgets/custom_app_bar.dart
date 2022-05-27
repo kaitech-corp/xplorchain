@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_chain_mvp/services/constants/constants.dart';
 import 'package:travel_chain_mvp/services/size_config/size_config.dart';
@@ -51,11 +50,11 @@ class CustomAppBar extends StatelessWidget {
 
                     },
                     child: Hero(
-                      tag: "234",
+                      tag: '234',
                       transitionOnUserGestures: true,
                       child: CircleAvatar(
                         radius: SizeConfig.screenWidth*.1,
-                        backgroundImage: AssetImage(earthImage),
+                        backgroundImage: const AssetImage(earthImage),
                       ),
                     ),
                   ),

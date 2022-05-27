@@ -8,7 +8,7 @@ class SliverGridView extends StatelessWidget {
   final String tag;
   final int plus;
 
-  const SliverGridView({Key? key, required this.tag, required this.plus}) : super(key: key);
+  const SliverGridView({ required this.tag, required this.plus, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

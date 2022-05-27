@@ -11,8 +11,7 @@ class AppBarAnimationWeb extends StatefulWidget {
   final ScrollController controller;
 
   const AppBarAnimationWeb({
-    Key? key,
-    required this.controller,
+    required this.controller, Key? key,
   }) : super(key: key);
 
   @override
@@ -96,7 +95,7 @@ class _AppBarAnimationWebState extends State<AppBarAnimationWeb> {
                               navigationService.navigateTo(homeRoute);
                             },
                             child: Hero(
-                              tag: "234",
+                              tag: '234',
                               transitionOnUserGestures: true,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),

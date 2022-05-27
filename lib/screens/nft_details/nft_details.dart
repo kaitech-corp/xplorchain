@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:readmore/readmore.dart';
@@ -14,7 +13,7 @@ class NFTDetails extends StatefulWidget {
 
   final NFTDetailsModel model;
 
-  const NFTDetails({Key? key, required this.model}) : super(key: key);
+  const NFTDetails({required this.model, Key? key}) : super(key: key);
 
   @override
   State<NFTDetails> createState() => _NFTDetailsState();
@@ -145,7 +144,7 @@ class _NFTDetailsState extends State<NFTDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text("More in ${locations[int.parse(widget.model.index[0])]}", style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
+                child: Text('More in ${locations[int.parse(widget.model.index[0])]}', style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
               ),
               SizedBox(
                 height: SizeConfig.screenHeight*.15,

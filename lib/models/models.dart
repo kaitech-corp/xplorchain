@@ -12,9 +12,9 @@ class XRPLResponseData {
   XRPLResponseData({this.id,this.result,this.type});
 
   XRPLResponseData.fromJson(Map<String, dynamic> jsonMap):
-    id = jsonMap["id"],
-    result = jsonMap["result"],
-    type = jsonMap["type"];
+    id = jsonMap['id'],
+    result = jsonMap['result'],
+    type = jsonMap['type'];
 }
 
 /// Model for xrpl transaction data
@@ -27,9 +27,9 @@ class XRPLTransaction {
   XRPLTransaction({this.account,this.accountNFTs,this.ledgerCurrentIndex,this.validated});
 
   XRPLTransaction.fromJson(Map<String, dynamic> jsonMap):
-    accountNFTs = jsonMap["account_nfts"],
-    ledgerCurrentIndex = jsonMap["ledger_current_index"],
-    validated = jsonMap["validated"];
+    accountNFTs = jsonMap['account_nfts'],
+    ledgerCurrentIndex = jsonMap['ledger_current_index'],
+    validated = jsonMap['validated'];
 
 }
 
@@ -45,10 +45,10 @@ class AccountNFTs {
   AccountNFTs({this.flags,this.issuer,this.nftSerial,this.tokenID,this.tokenTaxon,this.uri});
 
   AccountNFTs.fromJSON(Map<String, dynamic> jsonMap):
-    flags = jsonMap["Flags"],
-    issuer = jsonMap["Issuer"],
-    tokenID = jsonMap["TokenID"],
-    tokenTaxon = jsonMap["TokenTaxon"],
-    uri = jsonMap["URI"],
-    nftSerial = jsonMap["nft_serial"];
+    flags = jsonMap['Flags'],
+    issuer = jsonMap['Issuer'],
+    tokenID = jsonMap['TokenID'],
+    tokenTaxon = jsonMap['TokenTaxon'],
+    uri = jsonMap['URI'],
+    nftSerial = jsonMap['nft_serial'];
 }

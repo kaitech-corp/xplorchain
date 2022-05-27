@@ -29,7 +29,7 @@ class MenuDrawer extends StatelessWidget {
                               child: CircleAvatar(
                                 radius: SizeConfig.screenWidth / 8.0,
                                     
-                                backgroundImage:AssetImage(earthImage),
+                                backgroundImage: const AssetImage(earthImage),
                               ),
                             ),
                           ],

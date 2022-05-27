@@ -40,7 +40,7 @@ class _MyCollectionState extends State<MyCollection> {
               const SizedBox(height: 50,),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text("My Collection",style: Theme.of(context).textTheme.headline4,),
+                child: Text('My Collection',style: Theme.of(context).textTheme.headline4,),
               ),
               ///Example Future to retrieve nft and metadata. Will convert to bloc pattern style.
               Padding(
@@ -107,7 +107,7 @@ class _MyCollectionState extends State<MyCollection> {
                           },
                         );
                         } else {
-                        return const Text("Error retrieving data.");
+                        return const Text('Error retrieving data.');
                       }
                     }),
                 ),

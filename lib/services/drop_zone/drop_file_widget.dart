@@ -8,7 +8,7 @@ import '../../models/drop_file_model.dart';
 class DroppedFileWidget extends StatefulWidget {
 
   final ValueNotifier<FileDataModel?> file;
-  const DroppedFileWidget({Key? key, required this.file}) : super(key: key);
+  const DroppedFileWidget({required this.file, Key? key}) : super(key: key);
 
   @override
   State<DroppedFileWidget> createState() => _DroppedFileWidgetState();
@@ -27,7 +27,7 @@ class _DroppedFileWidgetState extends State<DroppedFileWidget> {
   }
 
   Widget buildImage(BuildContext context){
-    if(widget.file.value == null) return buildEmptyFile("");
+    if(widget.file.value == null) return buildEmptyFile('');
     return Center(
       child: Stack(
         children: [

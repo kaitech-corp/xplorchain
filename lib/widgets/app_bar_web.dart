@@ -51,7 +51,7 @@ class AppBarWeb extends StatelessWidget {
                           navigationService.navigateTo(homeRoute);
                         },
                         child: Hero(
-                          tag: "234",
+                          tag: '234',
                           transitionOnUserGestures: true,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

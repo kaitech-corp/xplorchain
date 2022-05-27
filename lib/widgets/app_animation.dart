@@ -8,8 +8,7 @@ class AppBarAnimation extends StatefulWidget {
   final ScrollController controller;
 
   const AppBarAnimation({
-    Key? key,
-    required this.controller,
+    required this.controller, Key? key,
   }) : super(key: key);
 
   @override
@@ -84,7 +83,7 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
 
                         },
                         child: Hero(
-                          tag: "234",
+                          tag: '234',
                           transitionOnUserGestures: true,
                           child: Padding(
                             padding: const EdgeInsets.all(4.0),

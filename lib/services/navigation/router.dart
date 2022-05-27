@@ -62,7 +62,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
   }
 }
 
-CupertinoPageRoute _getPageRoute({String? routeName, required Widget viewToShow }) {
+CupertinoPageRoute _getPageRoute({ required Widget viewToShow, String? routeName }) {
   return CupertinoPageRoute(
       settings: RouteSettings(
         name: routeName,

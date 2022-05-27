@@ -9,7 +9,7 @@ void projectInitializer() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: '.env');
 
 
   await Firebase.initializeApp(options: FirebaseOptions(

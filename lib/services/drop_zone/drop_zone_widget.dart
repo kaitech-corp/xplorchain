@@ -9,7 +9,7 @@ class DropZoneWidget extends StatefulWidget {
 
   final ValueChanged<FileDataModel> onDroppedFile;
 
-  const DropZoneWidget({Key? key,required this.onDroppedFile}):super(key: key);
+  const DropZoneWidget({required this.onDroppedFile, Key? key}):super(key: key);
   @override
   _DropZoneWidgetState createState() => _DropZoneWidgetState();
 }
@@ -79,11 +79,11 @@ class _DropZoneWidgetState extends State<DropZoneWidget> {
     final byte = await controller.getFileSize(event);
     final url = await controller.createFileUrl(event);
 
-    print('Name : $name');
-    print('Mime: $mime');
-
-    print('Size : ${byte / (1024 * 1024)}');
-    print('URL: $url');
+    // print('Name : $name');
+    // print('Mime: $mime');
+    //
+    // print('Size : ${byte / (1024 * 1024)}');
+    // print('URL: $url');
 
     final droppedFile = FileDataModel
       (name: name, mime: mime, bytes: byte, url: url);

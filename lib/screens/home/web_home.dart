@@ -7,7 +7,7 @@ class WebHome extends StatelessWidget {
   final ScrollController controller;
 
   const WebHome({
-    Key? key, required this.controller,
+    required this.controller, Key? key,
   }) : super(key: key);
 
   @override

@@ -8,7 +8,7 @@ class GradientIcon extends StatelessWidget {
   final IconData icon;
   final double size;
 
-  const GradientIcon({Key? key, required this.icon, required this.size})
+  const GradientIcon({ required this.icon, required this.size, Key? key })
       : super(key: key);
 
   @override

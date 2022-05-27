@@ -38,8 +38,8 @@ class Login extends StatelessWidget{
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(Intl.message("Sign In", name: 'signIn',desc: 'sign in'),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
-                        Text(Intl.message("Choose an available wallet provider below",name: 'chooseWallet'), style: Theme.of(context).textTheme.subtitle1,),
+                        Text(Intl.message('Sign In', name: 'signIn',desc: 'sign in'),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
+                        Text(Intl.message('Choose an available wallet provider below',name: 'chooseWallet'), style: Theme.of(context).textTheme.subtitle1,),
                         SizedBox(height: SizeConfig.screenHeight*.01,),
                         Center(
                           child: Container(
@@ -54,20 +54,20 @@ class Login extends StatelessWidget{
                                       height: 24,
                                       width: 24,
                                       child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                    text:"Devnet"),
+                                    text:'Devnet'),
                                 Tab(
                                   icon: SizedBox(
                                     height: 24,
                                     width: 24,
                                     child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                  text: "XRPL",
+                                  text: 'XRPL',
                                 ),
                                 Tab(
                                     icon: SizedBox(
                                       height: 24,
                                       width: 24,
                                       child: SvgPicture.asset(xrpIcon,color: Colors.black,),),
-                                    text:"XUMM"),
+                                    text:'XUMM'),
                               ],
                             ),
                           ),
@@ -98,7 +98,7 @@ class NFTCollection extends StatelessWidget{
 
   final int index;
 
-  const NFTCollection({Key? key, required this.index}) : super(key: key);
+  const NFTCollection({required this.index, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -58,7 +58,6 @@ class _MintFormState extends State<MintForm> {
               onChanged: (String? val){
                 setState(() {
                   _selection = val!;
-
                 });
               },
             ),
@@ -88,8 +87,12 @@ class _MintFormState extends State<MintForm> {
                         ),
                         // ignore: missing_return
                         validator: (value) {
+                          if (value?.isEmpty ?? true){
+                            return 'Please enter an item name.';
+                          } else {
 
-                        },
+                          }
+                          },
                         onChanged: (val) =>
                         {
 
@@ -108,12 +111,11 @@ class _MintFormState extends State<MintForm> {
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white30, width: 1.0),
                         ),
-                        labelText: "Link",
+                        labelText: 'Link',
                       ),
                       // ignore: missing_return
                       validator: (value) {
-                        //TODO add validator functions
-                        if ((value?.isNotEmpty ?? false)){
+                        if ((value?.isEmpty ?? true)){
                           return Intl.message('Please enter a valid link with including https.');
                         }
                       },
@@ -135,8 +137,7 @@ class _MintFormState extends State<MintForm> {
                       ),
                       // ignore: missing_return
                       validator: (value) {
-                        //TODO add validator functions
-                        if ((value?.isNotEmpty ?? false)){
+                        if ((value?.isEmpty ?? true)){
                           return Intl.message('Please enter a quantity.');
                         }
                       },
