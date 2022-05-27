@@ -4,7 +4,7 @@ import '../../models/drop_file_model.dart';
 import '../../services/drop_zone/drop_file_widget.dart';
 import '../../services/drop_zone/drop_zone_widget.dart';
 
-/// Form for minting screening
+/// Form for minting
 class MintForm extends StatefulWidget {
 
   const MintForm({Key? key}) : super(key: key);
