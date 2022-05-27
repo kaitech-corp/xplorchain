@@ -18,9 +18,13 @@ class _MintFormState extends State<MintForm> {
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<FileDataModel?> file = ValueNotifier(null);
 
+  String _selection = 'Keychain';
+  List<String> mintType = ['Keychain', 'Experience', 'Event'];
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ValueListenableBuilder(
           valueListenable: file,
@@ -43,6 +47,26 @@ class _MintFormState extends State<MintForm> {
             );
           }),
         const SizedBox(height: 20,),
+        Row(
+          children: [
+            Text('Mint type: ',style: Theme.of(context).textTheme.headline5,),
+            DropdownButton<String>(
+              value: _selection,
+              style: Theme.of(context).textTheme.headline5?.copyWith(color: Colors.blueAccent),
+              items: mintType.map<DropdownMenuItem<String>>((String value) => DropdownMenuItem(child: Text(value), value: value,)).toList(),
+              onChanged: (String? val){
+                setState(() {
+                  _selection = val!;
+
+                });
+              },
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text('Get started by minting a new $_selection',style: Theme.of(context).textTheme.subtitle1?.copyWith(fontStyle: FontStyle.italic)),
+        ),
         Builder(
             builder: (context)=> Form(
               key: _formKey,
@@ -123,7 +147,7 @@ class _MintFormState extends State<MintForm> {
                       enableInteractiveSelection: true,
                       textCapitalization: TextCapitalization.sentences,
                       cursorColor: Colors.grey,
-                      maxLines: 15,
+                      maxLines: 10,
                       decoration: InputDecoration(
                           enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white30, width: 1.0),
