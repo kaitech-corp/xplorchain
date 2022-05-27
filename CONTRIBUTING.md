@@ -8,7 +8,7 @@ If you want to contribute documentation have a look at the [Wiki](https://github
 To contribute tutorials or help documents, get in touch with the _Documentation leader_, Randy Nolden (Randy@kaitechcorp.com).
 
 **Please read** and **follow these guidelines** before submitting a bug report, feature request or pull request.
-It really helps us efficiently process your contribution!
+It really helps us efficiently process your contribution! 
 
 **Table Of Contents**  
 [Report a bug](#bug-reports)   

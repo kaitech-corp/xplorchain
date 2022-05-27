@@ -13,7 +13,7 @@ various rewards including Common tiered NTF's.
 - This platform will also allow entities to sell NFT's as ticket-like items that grant special privileges.
 
 
-## Under The Hood
+## Under The Hood 
 (Subject to change)
 
 - Flutter/Dart
