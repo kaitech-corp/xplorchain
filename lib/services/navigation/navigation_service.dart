@@ -11,15 +11,15 @@ class NavigationService {
     return _navigationKey.currentState?.pop();
   }
 
-  Future<Object?>? pushReplacementNamed(String routeName){
+  Future<dynamic>? pushReplacementNamed(String routeName){
     return _navigationKey.currentState?.pushReplacementNamed(routeName);
   }
 
-  Future<Object?>? pushNamedAndRemoveUntil(String routeName){
+  Future<dynamic>? pushNamedAndRemoveUntil(String routeName){
     return _navigationKey.currentState?.pushNamedAndRemoveUntil(routeName, (route) => false);
   }
 
-  Future<Object?>? navigateTo(String routeName, {dynamic arguments}) {
+  Future<dynamic>? navigateTo(String routeName, {dynamic arguments}) {
     return _navigationKey.currentState?.pushNamed(routeName, arguments: arguments);
   }
 
