@@ -43,3 +43,7 @@ LinearGradient gradient = const LinearGradient(
     Colors.green
   ],
 );
+
+// Mint Form
+List<String> mintType = ['Keychain', 'Experience', 'Event'];
+List<int> qty = [1,2,3,4,5,6,7,8,9,10];

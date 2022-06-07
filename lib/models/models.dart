@@ -52,3 +52,23 @@ class AccountNFTs {
     uri = jsonMap['URI'],
     nftSerial = jsonMap['nft_serial'];
 }
+
+/// Model for metadata 
+class MintMetaData {
+  int quantity;
+  String description;
+  String hash;
+  String itemName;
+  String  mintType;
+  String primaryLink;
+  String? secondaryLink;
+
+  MintMetaData(
+      {required this.quantity,
+      required this.description,
+      required this.hash,
+      required this.itemName,
+      required this.mintType,
+      required this.primaryLink,
+      this.secondaryLink});
+}
