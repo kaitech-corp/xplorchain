@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/constants/constants.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../services/constants/constants.dart';
+import '../services/size_config/size_config.dart';
 
 
 /// Custom app bar
@@ -31,7 +31,6 @@ class CustomAppBar extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black,
                 blurRadius: 10.0,
               ),
               BoxShadow(
@@ -92,9 +91,9 @@ class CustomAppBar extends StatelessWidget {
 class CustomShape extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    var path = Path();
-    double height = size.height;
-    double width = size.width;
+    final Path path = Path();
+    final double height = size.height;
+    final double width = size.width;
     path.lineTo(0, height - 100);
     path.quadraticBezierTo(width / 2, height, width, height - 100);
     path.lineTo(width, 0);

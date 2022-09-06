@@ -1,13 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:travel_chain_mvp/models/models.dart';
-import 'package:travel_chain_mvp/services/locator.dart';
-import 'package:travel_chain_mvp/services/navigation/route_names.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
-import 'package:travel_chain_mvp/widgets/sliver_grid_view.dart';
 
+import '../../models/models.dart';
 import '../../services/constants/constants.dart';
+import '../../services/locator.dart';
+import '../../services/navigation/route_names.dart';
+import '../../services/size_config/size_config.dart';
+import '../../widgets/sliver_grid_view.dart';
 
 /// Market screen. Web version.
 class MarketWeb extends StatelessWidget{
@@ -48,7 +48,7 @@ class MarketWeb extends StatelessWidget{
           child: ListView.builder(
               itemCount: 3,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index){
+              itemBuilder: (BuildContext context, int index){
                 return NFTCollectionAvatar(index: '$index 004');
               }),
         ),
@@ -64,10 +64,8 @@ class MarketWeb extends StatelessWidget{
               options: CarouselOptions(
                 autoPlay: true,
                 autoPlayAnimationDuration: const Duration(seconds: 3),
-                // aspectRatio: 2,
-                enlargeCenterPage: false,
               ),
-              items: List.generate(5, (index) => NFTCollection(index: '$index 003')),
+              items: List.generate(5, (int index) => NFTCollection(index: '$index 003')),
             ),
           ),
         ),
@@ -88,7 +86,7 @@ class MarketWeb extends StatelessWidget{
           // color: Colors.blueGrey,
           child: ListView.builder(
               itemCount: 4,
-              itemBuilder: (context, index){
+              itemBuilder: (BuildContext context, int index){
                 return Card(
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10))
@@ -109,9 +107,9 @@ class MarketWeb extends StatelessWidget{
 /// Demo of displaying nft collections.
 class NFTCollection extends StatelessWidget{
 
-  final String index;
-
   const NFTCollection({required this.index, Key? key}) : super(key: key);
+
+  final String index;
 
   @override
   Widget build(BuildContext context) {
@@ -143,9 +141,9 @@ class NFTCollection extends StatelessWidget{
 /// Demo of displaying nft collections. Circle Avatar view.
 class NFTCollectionAvatar extends StatelessWidget{
 
-  final String index;
-
   const NFTCollectionAvatar({required this.index, Key? key}) : super(key: key);
+
+  final String index;
 
   @override
   Widget build(BuildContext context) {

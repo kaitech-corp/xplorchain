@@ -3,7 +3,7 @@ import 'dart:math';
 double normalize(val, max, min) { return (val - min) / (max - min); }
 
 int randomNumber() {
-  Random random = Random();
-  int number = random.nextInt(100);
+  final Random random = Random();
+  final int number = random.nextInt(100);
   return number;
 }

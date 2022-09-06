@@ -2,15 +2,15 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/screens/home/home.dart';
-import 'package:travel_chain_mvp/screens/my_collection/my_collection.dart';
-import 'package:travel_chain_mvp/screens/nft_details/nft_details.dart';
-import 'package:travel_chain_mvp/services/constants/constants.dart';
-import 'package:travel_chain_mvp/services/navigation/route_names.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
+import '../../screens/home/home.dart';
 import '../../screens/login/login.dart';
 import '../../screens/mint/mint.dart';
+import '../../screens/my_collection/my_collection.dart';
+import '../../screens/nft_details/nft_details.dart';
+import '../constants/constants.dart';
+import '../size_config/size_config.dart';
+import 'route_names.dart';
 
 
 ///Navigation routes

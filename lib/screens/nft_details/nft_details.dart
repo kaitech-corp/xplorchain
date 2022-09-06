@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:readmore/readmore.dart';
-import 'package:travel_chain_mvp/models/models.dart';
-import 'package:travel_chain_mvp/services/constants/constants.dart';
-import 'package:travel_chain_mvp/services/constants/functions.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../../models/models.dart';
+import '../../services/constants/constants.dart';
+import '../../services/constants/functions.dart';
+import '../../services/size_config/size_config.dart';
 
 import '../market/market_web.dart';
 
 /// Details page for NFTs
 class NFTDetails extends StatefulWidget {
 
-  final NFTDetailsModel model;
-
   const NFTDetails({required this.model, Key? key}) : super(key: key);
+
+  final NFTDetailsModel model;
 
   @override
   State<NFTDetails> createState() => _NFTDetailsState();
@@ -23,8 +23,8 @@ class _NFTDetailsState extends State<NFTDetails> {
 
   final double _height = SizeConfig.screenHeight*.45;
   final double _width = SizeConfig.screenWidth*.5;
-  var x = randomNumber();
-  var y = randomNumber();
+  int x = randomNumber();
+  int y = randomNumber();
   double animatedScale = 1.0;
 
   bool expanded = false;
@@ -46,8 +46,8 @@ class _NFTDetailsState extends State<NFTDetails> {
 
   @override
   Widget build(BuildContext context) {
-    var num = x.toString();
-    var num2 = (x/3).floor().toString();
+    final String num = x.toString();
+    final String num2 = (x/3).floor().toString();
 
     return Scaffold(
       appBar: AppBar(
@@ -131,12 +131,10 @@ class _NFTDetailsState extends State<NFTDetails> {
               Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: ReadMoreText(description,
-                  trimLines: 2,
                   trimCollapsedText: 'more',
                   trimExpandedText: 'less',
-                  trimMode: TrimMode.Length,
                   colorClickableText: Colors.blueAccent,
-                  callback: (val){
+                  callback: (bool val){
                     onExpand(val);
                   },
                   style: Theme.of(context).textTheme.headline6,
@@ -152,7 +150,7 @@ class _NFTDetailsState extends State<NFTDetails> {
                 child: ListView.builder(
                     itemCount: 5,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
+                    itemBuilder: (BuildContext context, int index){
                       return NFTCollectionAvatar(index: index.toString());
                     }),
               ),

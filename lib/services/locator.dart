@@ -9,4 +9,4 @@ void setupLocator() {
   locator.registerLazySingleton(() => NavigationService());
 }
 
-var navigationService = locator<NavigationService>();
+NavigationService navigationService = locator<NavigationService>();

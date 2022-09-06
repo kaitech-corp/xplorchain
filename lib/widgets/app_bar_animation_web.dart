@@ -1,18 +1,18 @@
 
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/constants/constants.dart';
-import 'package:travel_chain_mvp/services/locator.dart';
-import 'package:travel_chain_mvp/services/navigation/route_names.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../services/constants/constants.dart';
+import '../services/locator.dart';
+import '../services/navigation/route_names.dart';
+import '../services/size_config/size_config.dart';
 
 ///App Bar animation
 class AppBarAnimationWeb extends StatefulWidget {
 
-  final ScrollController controller;
-
   const AppBarAnimationWeb({
     required this.controller, Key? key,
   }) : super(key: key);
+
+  final ScrollController controller;
 
   @override
   _AppBarAnimationWebState createState() => _AppBarAnimationWebState();
@@ -72,7 +72,6 @@ class _AppBarAnimationWebState extends State<AppBarAnimationWeb> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black,
                   blurRadius: 10.0,
                 ),
                 BoxShadow(
@@ -86,7 +85,6 @@ class _AppBarAnimationWebState extends State<AppBarAnimationWeb> {
                 child: SafeArea(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Row(
                         children: [
@@ -114,7 +112,7 @@ class _AppBarAnimationWebState extends State<AppBarAnimationWeb> {
                           SizedBox(
                             height: SizeConfig.screenHeight*.05,
                               width: SizeConfig.screenWidth*.25,
-                              child: const TextField(maxLines: 1,)),
+                              child: const TextField()),
                            Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(loginRoute), child: Text('Account', style: Theme.of(context).textTheme.headline6,)),
@@ -135,13 +133,13 @@ class _AppBarAnimationWebState extends State<AppBarAnimationWeb> {
 
 
 class ArcShape extends CustomClipper<Path> {
+  ArcShape({required this.x, required this.y});
   double x;
   double y;
-  ArcShape({required this.x, required this.y});
 
   @override
   Path getClip(Size size) {
-    var path = Path();
+    final Path path = Path();
     path.lineTo(0.0, size.height - y);
     //Adds a quadratic bezier segment that curves from the current point
     //to the given point (x2,y2), using the control point (x1,y1).

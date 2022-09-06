@@ -5,11 +5,11 @@ import '../services/constants/constants.dart';
 /// Gradient icon generator.
 class GradientIcon extends StatelessWidget {
 
-  final IconData icon;
-  final double size;
-
   const GradientIcon({ required this.icon, required this.size, Key? key })
       : super(key: key);
+
+  final IconData icon;
+  final double size;
 
   @override
   Widget build(BuildContext context) {

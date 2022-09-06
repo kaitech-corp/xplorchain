@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/screens/menu/menu_drawer.dart';
-import 'package:travel_chain_mvp/widgets/app_bar_animation_web.dart';
 
 import '../../services/size_config/size_config.dart';
+import '../../widgets/app_bar_animation_web.dart';
+import '../menu/menu_drawer.dart';
 import 'web_home.dart';
 
 

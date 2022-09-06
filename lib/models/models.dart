@@ -1,13 +1,10 @@
 ///  Model NFT details
 class NFTDetailsModel {
-  final String index;
   NFTDetailsModel({required this.index});
+  final String index;
 }
 
 class XRPLResponseData {
-  String? id;
-  XRPLTransaction? result;
-  String? type;
 
   XRPLResponseData({this.id,this.result,this.type});
 
@@ -15,14 +12,13 @@ class XRPLResponseData {
     id = jsonMap['id'],
     result = jsonMap['result'],
     type = jsonMap['type'];
+  String? id;
+  XRPLTransaction? result;
+  String? type;
 }
 
 /// Model for xrpl transaction data
 class XRPLTransaction {
-  String? account;
-  List<AccountNFTs>? accountNFTs;
-  int? ledgerCurrentIndex;
-  bool? validated;
 
   XRPLTransaction({this.account,this.accountNFTs,this.ledgerCurrentIndex,this.validated});
 
@@ -30,17 +26,15 @@ class XRPLTransaction {
     accountNFTs = jsonMap['account_nfts'],
     ledgerCurrentIndex = jsonMap['ledger_current_index'],
     validated = jsonMap['validated'];
+  String? account;
+  List<AccountNFTs>? accountNFTs;
+  int? ledgerCurrentIndex;
+  bool? validated;
 
 }
 
 /// Model for accountNFTs data from transaction
 class AccountNFTs {
-  int? flags;
-  String? issuer;
-  String? tokenID;
-  int? tokenTaxon;
-  String? uri;
-  int? nftSerial;
 
   AccountNFTs({this.flags,this.issuer,this.nftSerial,this.tokenID,this.tokenTaxon,this.uri});
 
@@ -51,17 +45,16 @@ class AccountNFTs {
     tokenTaxon = jsonMap['TokenTaxon'],
     uri = jsonMap['URI'],
     nftSerial = jsonMap['nft_serial'];
+  int? flags;
+  String? issuer;
+  String? tokenID;
+  int? tokenTaxon;
+  String? uri;
+  int? nftSerial;
 }
 
 /// Model for metadata 
 class MintMetaData {
-  int quantity;
-  String description;
-  String hash;
-  String itemName;
-  String  mintType;
-  String primaryLink;
-  String? secondaryLink;
 
   MintMetaData(
       {required this.quantity,
@@ -71,4 +64,11 @@ class MintMetaData {
       required this.mintType,
       required this.primaryLink,
       this.secondaryLink});
+  int quantity;
+  String description;
+  String hash;
+  String itemName;
+  String  mintType;
+  String primaryLink;
+  String? secondaryLink;
 }

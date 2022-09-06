@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
-import 'package:travel_chain_mvp/widgets/gradient_icon.dart';
 
 import '../../models/drop_file_model.dart';
+import '../../widgets/gradient_icon.dart';
+import '../size_config/size_config.dart';
 
 /// Dropped file widget
 class DroppedFileWidget extends StatefulWidget {
+  const DroppedFileWidget({required this.file, Key? key}) : super(key: key);
 
   final ValueNotifier<FileDataModel?> file;
-  const DroppedFileWidget({required this.file, Key? key}) : super(key: key);
 
   @override
   State<DroppedFileWidget> createState() => _DroppedFileWidgetState();
@@ -36,7 +36,7 @@ class _DroppedFileWidgetState extends State<DroppedFileWidget> {
             width: SizeConfig.screenWidth*.35,
             height: SizeConfig.screenWidth*.35,
             fit: BoxFit.fill,
-            errorBuilder:(context,error,_)=>buildEmptyFile('No Preview'),
+            errorBuilder:(BuildContext context,Object error,_)=>buildEmptyFile('No Preview'),
           ),
           IconButton(
             onPressed: (){
@@ -55,11 +55,10 @@ class _DroppedFileWidgetState extends State<DroppedFileWidget> {
   }
 
   Widget buildFileDetail(FileDataModel? file) {
-    const  style =  TextStyle( fontSize: 20);
+    const  TextStyle style =  TextStyle( fontSize: 20);
     return Container(
       margin: const EdgeInsets.only(left: 24),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Text('Selected File Preview ',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 20),),
           // Text('Name: ${file?.name}',style: const TextStyle(fontWeight: FontWeight.w800,fontSize: 22),),

@@ -1,6 +1,6 @@
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:travel_chain_mvp/models/models.dart';
+import '../../models/models.dart';
 
 ///Cloud functions are written in javascript and ran using Google Cloud Function
 ///These functions retrieve the data.
@@ -9,7 +9,7 @@ class CloudFunction {
   Future<String> connectXRPL() async {
     final HttpsCallable callable =
         FirebaseFunctions.instance.httpsCallable('connectXRPL');
-    final results = await callable(
+    final HttpsCallableResult results = await callable(
         {'address': dotenv.env['address1'], 'secret': dotenv.env['secret1']});
     return results.data;
   }
@@ -18,7 +18,7 @@ class CloudFunction {
   Future<dynamic> getTokens() async {
     final HttpsCallable callable =
         FirebaseFunctions.instance.httpsCallable('getTokens');
-    final results = await callable(
+    final HttpsCallableResult results = await callable(
         {'address': dotenv.env['address1'], 'secret': dotenv.env['secret1']});
     return results.data;
   }
@@ -27,7 +27,7 @@ class CloudFunction {
   Future<dynamic> mintToken({required MintMetaData mintMetaData}) async {
     final HttpsCallable callable =
         FirebaseFunctions.instance.httpsCallable('mintToken');
-    final results = await callable({
+    final HttpsCallableResult results = await callable({
       'address': dotenv.env['address1'],
       'secret': dotenv.env['secret1'],
       'quantity': mintMetaData.quantity,
@@ -48,7 +48,7 @@ class CloudFunction {
   Future<String> convertHexToString(String hex) async {
     final HttpsCallable callable =
         FirebaseFunctions.instance.httpsCallable('convertHexToString');
-    final results = await callable({
+    final HttpsCallableResult results = await callable({
       'hex': hex,
     });
     return results.data;
@@ -59,7 +59,7 @@ class CloudFunction {
   Future<dynamic> pingXUMM() async {
     final HttpsCallable callable =
         FirebaseFunctions.instance.httpsCallable('pingXUMM');
-    final results = await callable({
+    final HttpsCallableResult results = await callable({
       'key': dotenv.env['XummKey'],
       'secret': dotenv.env['XummSecret'],
     });

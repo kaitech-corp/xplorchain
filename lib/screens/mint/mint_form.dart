@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:travel_chain_mvp/models/models.dart';
-import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
 
 import '../../models/drop_file_model.dart';
+import '../../models/models.dart';
+import '../../services/cloud_functions/cloud_functions.dart';
 import '../../services/constants/constants.dart';
 import '../../services/drop_zone/drop_file_widget.dart';
 import '../../services/drop_zone/drop_zone_widget.dart';
@@ -17,7 +17,7 @@ class MintForm extends StatefulWidget {
 }
 
 class _MintFormState extends State<MintForm> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   ValueNotifier<FileDataModel?> file = ValueNotifier(null);
   MintMetaData? mintMetaData ;
 
@@ -44,14 +44,14 @@ class _MintFormState extends State<MintForm> {
         ValueListenableBuilder(
             valueListenable: file,
             builder:
-                (BuildContext context, FileDataModel? _file, Widget? child) {
+                (BuildContext context, FileDataModel? file, Widget? child) {
               return Column(
                 children: [
                   if (file.value == null)
                     SizedBox(
                       height: 300,
                       child: DropZoneWidget(
-                        onDroppedFile: (file) {
+                        onDroppedFile: (FileDataModel file) {
                           setState(() {
                             this.file.value = file;
                           });
@@ -83,8 +83,8 @@ class _MintFormState extends State<MintForm> {
               items: mintType
                   .map<DropdownMenuItem<String>>(
                       (String value) => DropdownMenuItem(
-                            child: Text(value),
                             value: value,
+                            child: Text(value),
                           ))
                   .toList(),
               onChanged: (String? val) {
@@ -105,7 +105,7 @@ class _MintFormState extends State<MintForm> {
                   ?.copyWith(fontStyle: FontStyle.italic)),
         ),
         Builder(
-            builder: (context) => Form(
+            builder: (BuildContext context) => Form(
                   key: _formKey,
                   child: Column(
                     children: [
@@ -119,33 +119,33 @@ class _MintFormState extends State<MintForm> {
                               labelText: 'Item name',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Colors.white30, width: 1.0),
+                                    color: Colors.white30),
                               ),
                             ),
                             // ignore: missing_return
-                            validator: (value) {
+                            validator: (String? value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter an item name.';
                               }
                               return null;
                             },
-                            onChanged: (val) => mintMetaData!.itemName = val),
+                            onChanged: (String val) => mintMetaData!.itemName = val),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
-                          onChanged: (val) => mintMetaData!.primaryLink = val,
+                          onChanged: (String val) => mintMetaData!.primaryLink = val,
                           enableInteractiveSelection: true,
                           // maxLines: 2,
                           decoration: const InputDecoration(
                             enabledBorder: OutlineInputBorder(
                               borderSide:
-                                  BorderSide(color: Colors.white30, width: 1.0),
+                                  BorderSide(color: Colors.white30),
                             ),
                             labelText: 'Link',
                           ),
                           // ignore: missing_return
-                          validator: (value) {
+                          validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return Intl.message(
                                   'Please enter a valid link with including https.');
@@ -171,11 +171,11 @@ class _MintFormState extends State<MintForm> {
                               items: qty
                                   .map<DropdownMenuItem<int>>(
                                       (int value) => DropdownMenuItem(
-                                            child: Text(value.toString()),
                                             value: value,
+                                            child: Text(value.toString()),
                                           ))
                                   .toList(),
-                              onChanged: (val) {
+                              onChanged: (int? val) {
                                 setState(() {
                                   numSelection = val!;
                                   mintMetaData!.quantity = numSelection;
@@ -195,14 +195,14 @@ class _MintFormState extends State<MintForm> {
                           decoration: InputDecoration(
                               enabledBorder: const OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Colors.white30, width: 1.0),
+                                    color: Colors.white30),
                               ),
                               border: const OutlineInputBorder(),
                               hintText: Intl.message(
                                   'Provide a detailed description.'),
                               hintStyle: Theme.of(context).textTheme.subtitle1),
                           style: Theme.of(context).textTheme.subtitle1,
-                          onChanged: (val) => mintMetaData!.description = val,
+                          onChanged: (String val) => mintMetaData!.description = val,
                         ),
                       ),
                       Padding(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/constants/constants.dart';
-import 'package:travel_chain_mvp/services/locator.dart';
-import 'package:travel_chain_mvp/services/navigation/route_names.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../services/constants/constants.dart';
+import '../services/locator.dart';
+import '../services/navigation/route_names.dart';
+import '../services/size_config/size_config.dart';
 
 ///Static App Bar
 class AppBarWeb extends StatelessWidget {
@@ -28,7 +28,6 @@ class AppBarWeb extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black,
               blurRadius: 10.0,
             ),
             BoxShadow(
@@ -42,7 +41,6 @@ class AppBarWeb extends StatelessWidget {
             child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
                     children: [
@@ -70,7 +68,7 @@ class AppBarWeb extends StatelessWidget {
                       SizedBox(
                           height: SizeConfig.screenHeight*.05,
                           width: SizeConfig.screenWidth*.25,
-                          child: const TextField(maxLines: 1,)),
+                          child: const TextField()),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(onPressed: ()=>navigationService.navigateTo(loginRoute), child: Text('Account', style: Theme.of(context).textTheme.headline6,)),

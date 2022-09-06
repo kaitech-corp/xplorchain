@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/screens/market/market_web.dart';
+import '../market/market_web.dart';
 
 import '../my_collection/my_collection.dart';
 
@@ -28,7 +28,7 @@ class SliderMenu extends StatelessWidget {
           onTap: (){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const MyCollection()),
+              MaterialPageRoute(builder: (BuildContext context) => const MyCollection()),
             );
           },
         ),
@@ -37,7 +37,7 @@ class SliderMenu extends StatelessWidget {
           onTap: (){
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Padding(
+              MaterialPageRoute(builder: (BuildContext context) => const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: MarketWeb(),
               )),

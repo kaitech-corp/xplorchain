@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_network/image_network.dart';
-import 'package:travel_chain_mvp/models/models.dart';
-import 'package:travel_chain_mvp/services/cloud_functions/cloud_functions.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../../models/models.dart';
+import '../../services/cloud_functions/cloud_functions.dart';
+import '../../services/size_config/size_config.dart';
 
 import '../../widgets/app_bar_animation_web.dart';
 
@@ -52,19 +52,18 @@ class _MyCollectionState extends State<MyCollection> {
                     future: CloudFunction().getTokens(),
                     builder: (BuildContext context, AsyncSnapshot<dynamic> response){
                       if(response.hasData){
-                        var results = response.data['result']['account_nfts'];
-                        var data = results.map((result) => AccountNFTs.fromJSON(result)).toList();
+                        final results = response.data['result']['account_nfts'];
+                        final data = results.map((result) => AccountNFTs.fromJSON(result)).toList();
                         return ListView.builder(
                           padding: const EdgeInsets.all(8),
                           itemCount: data.length,
-                          itemBuilder: (context, index){
-                            AccountNFTs nft = data[index];
+                          itemBuilder: (BuildContext context, int index){
+                            final AccountNFTs nft = data[index];
                             return Card(
                               shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(15))
                               ),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   SizedBox(
                                       height: SizeConfig.screenHeight*.3,
@@ -83,7 +82,6 @@ class _MyCollectionState extends State<MyCollection> {
                                                 image: response.data.toString(),
                                                 height: SizeConfig.screenHeight*.3,
                                                 width: SizeConfig.screenHeight*.3,
-                                                fitWeb: BoxFitWeb.cover,
                                               ),
                                             );
                                           } else {
@@ -97,9 +95,7 @@ class _MyCollectionState extends State<MyCollection> {
                                   Visibility(
                                     visible: showMetaData,
                                     child: Column(
-                                      children: const [
-                                       // Show Metadata
-                                      ],
+                                      
                                     ))
                                 ],
                               ),

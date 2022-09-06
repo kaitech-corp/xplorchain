@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-import 'package:travel_chain_mvp/screens/wallet_connections/devnet_connect.dart';
-import 'package:travel_chain_mvp/screens/wallet_connections/xumm_connect.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
 
 import '../../services/constants/constants.dart';
+import '../../services/size_config/size_config.dart';
 import '../../widgets/app_bar_web.dart';
+import '../wallet_connections/devnet_connect.dart';
+import '../wallet_connections/xumm_connect.dart';
 
 
 /// Display of users NFT collection given wallet credentials.
@@ -36,7 +36,6 @@ class Login extends StatelessWidget{
                     semanticContainer: false,
                     color: Colors.black87,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(Intl.message('Sign In', name: 'signIn',desc: 'sign in'),style: Theme.of(context).textTheme.headline4,textAlign: TextAlign.start,),
                         Text(Intl.message('Choose an available wallet provider below',name: 'chooseWallet'), style: Theme.of(context).textTheme.subtitle1,),
@@ -96,9 +95,9 @@ class Login extends StatelessWidget{
 
 class NFTCollection extends StatelessWidget{
 
-  final int index;
-
   const NFTCollection({required this.index, Key? key}) : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {

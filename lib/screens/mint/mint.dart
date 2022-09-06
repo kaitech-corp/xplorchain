@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../../services/size_config/size_config.dart';
 
 import '../../widgets/app_bar_web.dart';
 import 'mint_form.dart';

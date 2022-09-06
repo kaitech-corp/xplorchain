@@ -5,11 +5,11 @@ import '../locator.dart';
 
 
 ///Initializer function
-void projectInitializer() async {
+Future<void> projectInitializer() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  await dotenv.load(fileName: '.env');
+  await dotenv.load();
 
 
   await Firebase.initializeApp(options: FirebaseOptions(

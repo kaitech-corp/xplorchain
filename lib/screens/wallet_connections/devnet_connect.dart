@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/locator.dart';
-import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 
 import '../../services/cloud_functions/cloud_functions.dart';
+import '../../services/locator.dart';
+import '../../services/navigation/route_names.dart';
 
 ///Connection screen for DevNet
 class DevNetConnection extends StatefulWidget{
@@ -18,7 +18,7 @@ class _DevNetConnectionState extends State<DevNetConnection> {
 
   bool isGetTokensPressed = false;
 
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _DevNetConnectionState extends State<DevNetConnection> {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Builder(
-              builder: (context) => Form(
+              builder: (BuildContext context) => Form(
                 key: _formKey,
                 child: Column(
                   children: [
@@ -42,11 +42,12 @@ class _DevNetConnectionState extends State<DevNetConnection> {
                         // )
                       ),
                       // ignore: missing_return
-                      validator: (value) {
+                      validator: (String? value) {
                         if (value?.isEmpty ?? true) {
                           return 'Please enter public address';
                           // ignore: missing_return
                         }
+                        return null;
                       },
                     ),
                     TextFormField(
@@ -60,11 +61,12 @@ class _DevNetConnectionState extends State<DevNetConnection> {
                         // )
                       ),
                       // ignore: missing_return
-                      validator: (value) {
+                      validator: (String? value) {
                         if (value?.isEmpty ?? true) {
                           return 'Please enter secret';
                           // ignore: missing_return
                         }
+                        return null;
                       },
                     ),
                   ],
@@ -84,7 +86,7 @@ class _DevNetConnectionState extends State<DevNetConnection> {
         Center(
           child: FutureBuilder<String>(
             future: isPressed ? CloudFunction().connectXRPL(): null,
-            builder: (context, response){
+            builder: (BuildContext context, AsyncSnapshot<String> response){
               if(response.hasData){
                 return Column(
                   children: [

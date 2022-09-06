@@ -1,15 +1,15 @@
 
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/constants/constants.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../services/constants/constants.dart';
+import '../services/size_config/size_config.dart';
 
 class AppBarAnimation extends StatefulWidget {
-
-  final ScrollController controller;
 
   const AppBarAnimation({
     required this.controller, Key? key,
   }) : super(key: key);
+
+  final ScrollController controller;
 
   @override
   _AppBarAnimationState createState() => _AppBarAnimationState();
@@ -63,7 +63,6 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black,
                   blurRadius: 10.0,
                 ),
                 BoxShadow(
@@ -105,13 +104,13 @@ class _AppBarAnimationState extends State<AppBarAnimation> {
 
 
 class ArcShape extends CustomClipper<Path> {
+  ArcShape({required this.x, required this.y});
   double x;
   double y;
-  ArcShape({required this.x, required this.y});
 
   @override
   Path getClip(Size size) {
-    var path = Path();
+    final Path path = Path();
     path.lineTo(0.0, size.height - y);
     //Adds a quadratic bezier segment that curves from the current point
     //to the given point (x2,y2), using the control point (x1,y1).

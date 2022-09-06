@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/locator.dart';
-import 'package:travel_chain_mvp/services/navigation/route_names.dart';
 
 import '../../services/cloud_functions/cloud_functions.dart';
+import '../../services/locator.dart';
+import '../../services/navigation/route_names.dart';
 
 ///Connection screen for XUMM wallets
 class XummConnection extends StatefulWidget{
@@ -35,7 +35,7 @@ class _XummConnectionState extends State<XummConnection> {
         Center(
           child: FutureBuilder<dynamic>(
             future: isPressed ? CloudFunction().pingXUMM(): null,
-            builder: (context, response){
+            builder: (BuildContext context, AsyncSnapshot response){
               if(response.hasData){
                 return Column(
                   children: [

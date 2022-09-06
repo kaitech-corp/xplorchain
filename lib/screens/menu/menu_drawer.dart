@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+
 import '../../services/constants/constants.dart';
+import '../../services/size_config/size_config.dart';
 
 ///Example menu
 class MenuDrawer extends StatelessWidget {
@@ -25,7 +26,6 @@ class MenuDrawer extends StatelessWidget {
                                 child: Text('Xplor',
                                     style: Theme.of(context).textTheme.headline5)),
                             Align(
-                              alignment: Alignment.center,
                               child: CircleAvatar(
                                 radius: SizeConfig.screenWidth / 8.0,
                                     

@@ -1,19 +1,19 @@
 //Colors
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/services/size_config/size_config.dart';
+import '../size_config/size_config.dart';
 
-const canvasColor = Color(0xFFFAFAFA);
-var locations = ['Palm Springs, CA','Seoul, Korea', 'Amsterdam, Netherlands','Chicago, Illinois','Paris, France','Cairo, Egypt'];
-var nftCollections = ['Outdoorsy', 'The Mandarin', 'EuroWalkers', 'Sailrz', 'Asgradians','Nightwalkers'];
-var nftCount = [5,15,8,6];
+const Color canvasColor = Color(0xFFFAFAFA);
+List<String> locations = ['Palm Springs, CA','Seoul, Korea', 'Amsterdam, Netherlands','Chicago, Illinois','Paris, France','Cairo, Egypt'];
+List<String> nftCollections = ['Outdoorsy', 'The Mandarin', 'EuroWalkers', 'Sailrz', 'Asgradians','Nightwalkers'];
+List<int> nftCount = [5,15,8,6];
 double defaultPadding = SizeConfig.screenWidth/8;
 
-const earthImage = 'assets/images/earth.PNG';
-const error = 'assets/images/error.jpg';
-const xrpIcon = 'assets/images/xrp_icon.svg';
+const String earthImage = 'assets/images/earth.PNG';
+const String error = 'assets/images/error.jpg';
+const String xrpIcon = 'assets/images/xrp_icon.svg';
 
-const artist = 'Artist Name';
-const description = 'Terentia currēbat. Nox Rōmae erat et Terentia per obscūrās '
+const String artist = 'Artist Name';
+const String description = 'Terentia currēbat. Nox Rōmae erat et Terentia per obscūrās '
     'urbis viās currēbat. Celeriter currēbat. Ante sē umbram vidēbat. Eam '
     'sequēbātur. Sed umbra celerius currēbat quam Terentia. Terentia subitō '
     'cōnstitit. Via erat vacua et obscūra. Nōnvidēbat umbram quam sequēbātur. '
@@ -24,16 +24,16 @@ const description = 'Terentia currēbat. Nox Rōmae erat et Terentia per obscūr
     'forīsesse; Terentia erat sōla et via erat vacua. Terentia conversa rediit '
     'eādem viā quā vēnerat.';
 
-const quantity = 'quantity';
-const owners = 'owners';
-const price = 'price';
+const String quantity = 'quantity';
+const String owners = 'owners';
+const String price = 'price';
 
-const animationDuration = Duration(milliseconds: 500);
-const animationDuration2 = Duration(milliseconds: 1000);
+const Duration animationDuration = Duration(milliseconds: 500);
+const Duration animationDuration2 = Duration(milliseconds: 1000);
 
-const version = '0.1';
+const String version = '0.1';
 
-var appBarDefaultPadding = SizeConfig.screenWidth*.1;
+double appBarDefaultPadding = SizeConfig.screenWidth*.1;
 
 LinearGradient gradient = const LinearGradient(
   colors: <Color>[

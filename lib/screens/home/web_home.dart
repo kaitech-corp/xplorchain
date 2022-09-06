@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:travel_chain_mvp/screens/market/market_web.dart';
+import '../market/market_web.dart';
 
 /// Web view
 class WebHome extends StatelessWidget {
 
-  final ScrollController controller;
-
   const WebHome({
     required this.controller, Key? key,
   }) : super(key: key);
+
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
